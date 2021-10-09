@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivitySplashScreenBinding
-import com.example.cake_shop.ui.ViewModel.MainActivity
+import com.example.cake_shop.ui.View.MainActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

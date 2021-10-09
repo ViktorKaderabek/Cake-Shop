@@ -1,4 +1,4 @@
-package com.example.cake_shop.ui.ViewModel
+package com.example.cake_shop.ui.View
 
 import android.content.Intent
 import android.os.Bundle
