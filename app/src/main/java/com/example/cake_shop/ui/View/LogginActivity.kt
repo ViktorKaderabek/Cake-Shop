@@ -10,10 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityLogginBinding
+import com.example.cake_shop.ui.ViewModel.LoginViewModel
 import com.vishnusivadas.advanced_httpurlconnection.PutData
 
 class LogginActivity : AppCompatActivity() {
 
+    lateinit var logginViewModel : LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +37,6 @@ class LogginActivity : AppCompatActivity() {
                     .isNotEmpty() && binding.edtxPassword.text.toString()
                     .isNotEmpty()
             ) {
-
-
                 val handler = Handler(Looper.getMainLooper())
                 handler.post(Runnable {
 
@@ -69,8 +69,7 @@ class LogginActivity : AppCompatActivity() {
                                     .show()
                             }
                         }
-                    }
-                    //End Write and Read data with URL
+                    } //End Write and Read data with URL
                 })
             } else {
                 Toast.makeText(applicationContext, "All fields are requiredsdds", Toast.LENGTH_SHORT)
