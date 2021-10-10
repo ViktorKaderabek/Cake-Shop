@@ -1,46 +1,32 @@
 package com.example.cake_shop.ui.View
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.cake_shop.R
-import com.example.cake_shop.databinding.ActivityLogginBinding
-import com.example.cake_shop.ui.ViewModel.LoginViewModel
+import com.example.cake_shop.databinding.ActivityResetPasswordBinding
 import com.vishnusivadas.advanced_httpurlconnection.PutData
 
-class LogginActivity : AppCompatActivity() {
-
-    lateinit var logginViewModel: LoginViewModel
-
+class ResetPasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val binding : ActivityResetPasswordBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_reset_password)
 
-        val binding: ActivityLogginBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_loggin)
+        val loginIntent : Intent =
+            Intent(this,LogginActivity::class.java)
 
-        val mainActivityIntent: Intent =
-            Intent(this, MainActivity::class.java)
-        val cakeShopMainActivity: Intent =
-            Intent(this, CakeShopMainScreenActivity::class.java)
-        val resetPasswordIntent: Intent =
-            Intent(this, ResetPasswordActivity::class.java)
-
-        binding.imbtnBack.setOnClickListener {
-            setResult(0, mainActivityIntent)
+        binding.imbtnBack.setOnClickListener{
+            startActivity(loginIntent)
             finish()
         }
 
-        binding.btnResetPwd.setOnClickListener {
-            startActivity(resetPasswordIntent)
-            finish()
-        }
-
-        binding.btnLogin.setOnClickListener {
+        binding.btnResetPwd.setOnClickListener{
 
             if (binding.edtxEmail.text.toString()
                     .isNotEmpty() && binding.edtxPassword.text.toString()
@@ -58,7 +44,7 @@ class LogginActivity : AppCompatActivity() {
                     data[1] = binding.edtxEmail.text.toString()
 
                     val putData = PutData(
-                        "http://192.168.0.242/LoginRegister/login.php",
+                        "http://192.168.0.242/LoginRegister/resetPassword.php",
                         "POST",
                         field,
                         data
@@ -68,10 +54,10 @@ class LogginActivity : AppCompatActivity() {
                             val result = putData.result
 
                             Log.i("PutData", result)
-                            if (result == "Login Success") {
+                            if (result == "Your password has been updated") {
                                 Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT)
                                     .show()
-                                startActivity(cakeShopMainActivity)
+                                startActivity(loginIntent)
                                 finish()
                             } else {
                                 Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT)
