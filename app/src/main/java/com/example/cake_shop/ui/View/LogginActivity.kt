@@ -15,7 +15,7 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData
 
 class LogginActivity : AppCompatActivity() {
 
-    lateinit var logginViewModel : LoginViewModel
+    lateinit var logginViewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +25,8 @@ class LogginActivity : AppCompatActivity() {
 
         val mainActivityIntent: Intent =
             Intent(this, MainActivity::class.java)
+        val cakeShopMainActivity: Intent =
+            Intent(this, CakeShopMainScreenActivity::class.java)
 
         binding.imbtnBack.setOnClickListener {
             setResult(0, mainActivityIntent)
@@ -62,7 +64,7 @@ class LogginActivity : AppCompatActivity() {
                             if (result == "Login Success") {
                                 Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT)
                                     .show()
-                                startActivity(mainActivityIntent)
+                                startActivity(cakeShopMainActivity)
                                 finish()
                             } else {
                                 Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT)
@@ -72,7 +74,11 @@ class LogginActivity : AppCompatActivity() {
                     } //End Write and Read data with URL
                 })
             } else {
-                Toast.makeText(applicationContext, "All fields are requiredsdds", Toast.LENGTH_SHORT)
+                Toast.makeText(
+                    applicationContext,
+                    "All fields are requiredsdds",
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             }
         }
