@@ -10,12 +10,12 @@ import com.example.cake_shop.databinding.ActivityMainBinding
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
-
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding: ActivityMainBinding =
+        binding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         val loginIntent: Intent =
@@ -32,7 +32,5 @@ class MainActivity : AppCompatActivity() {
 
             startActivityForResult(loginIntent, 1)
         }
-
-
     }
 }

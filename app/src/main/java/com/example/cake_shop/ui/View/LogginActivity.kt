@@ -15,12 +15,12 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData
 
 class LogginActivity : AppCompatActivity() {
 
-    lateinit var logginViewModel: LoginViewModel
-
+    private lateinit var logginViewModel: LoginViewModel
+    private lateinit var binding: ActivityLogginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding: ActivityLogginBinding =
+        binding=
             DataBindingUtil.setContentView(this, R.layout.activity_loggin)
 
         val mainActivityIntent: Intent =

@@ -1,65 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     >
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_baseline_face_24"
-            app:layout_constraintBottom_toTopOf="@+id/btn_signOut"
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            app:cardCornerRadius="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.106"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.1"
+            app:layout_constraintHorizontal_bias="0.14">
 
-        <ImageButton
-            android:id="@+id/btn_editProfilePicture"
-            android:layout_width="25dp"
-            android:layout_height="25sp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_baseline_edit_24"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/im_profilePicture"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_baseline_face_24"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:text="Viktor Kadeřábek"
-            android:maxLines="1"
+            android:layout_height="37.5dp"
+            android:layout_marginLeft="20dp"
             android:autoSizeMaxTextSize="15sp"
             android:autoSizeMinTextSize="10sp"
             android:autoSizeStepGranularity="0.1sp"
             android:autoSizeTextType="uniform"
             android:gravity="center|left"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+            android:maxLines="1"
+            android:text="Viktor Kadeřábek"
+
+            app:layout_constraintStart_toEndOf="@+id/cardView"
+            app:layout_constraintTop_toTopOf="@+id/cardView" />
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:text="viktorkaderabek@seznam.cz"
-            android:maxLines="1"
+            android:layout_height="37.5dp"
             android:autoSizeMaxTextSize="15sp"
             android:autoSizeMinTextSize="10sp"
             android:autoSizeStepGranularity="0.1sp"
             android:autoSizeTextType="uniform"
             android:gravity="center|left"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            android:maxLines="1"
+            android:text="viktorkaderabek@seznam.cz"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <Button
@@ -72,12 +88,22 @@
             android:textColor="#FF2433"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            app:layout_constraintVertical_bias="0.192"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <ImageButton
+            android:id="@+id/btn_editProfilePicture"
+            android:layout_width="25dp"
+            android:layout_height="25sp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_edit_24"
+            app:layout_constraintEnd_toEndOf="@+id/cardView"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/cardView"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+
 </layout>

@@ -19,12 +19,13 @@ import kotlinx.coroutines.launch
 
 class SignUpActivity : AppCompatActivity() {
 
-    lateinit var signUpViwModel: SignUpViewModel
+    private lateinit var signUpViwModel: SignUpViewModel
+    private lateinit var binding: ActivitySignupBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding: ActivitySignupBinding =
+        binding =
             DataBindingUtil.setContentView(this, R.layout.activity_signup)
 
         val mainActivityIntent: Intent =
@@ -37,11 +38,10 @@ class SignUpActivity : AppCompatActivity() {
             finish()
         }
         binding.btnAlreadyAcc.setOnClickListener {
-
             startActivity(logginIntent)
             finish()
-
         }
+
         binding.btnSignup.setOnClickListener {
 
             CoroutineScope(Dispatchers.IO).launch {

@@ -10,12 +10,15 @@ import com.example.cake_shop.ui.View.Fragments.AboutUsFragment
 import com.example.cake_shop.ui.View.Fragments.AccountFragment
 import com.example.cake_shop.ui.View.Fragments.HomeFragment
 import com.example.cake_shop.ui.View.Fragments.ProductsFragment
+
 @Suppress("DEPRECATION")
 class CakeShopMainScreenActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityCakeShopMainScreenBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val binding: ActivityCakeShopMainScreenBinding =
+        binding =
             DataBindingUtil.setContentView(this, R.layout.activity_cake_shop_main_screen)
 
         val homeFragmet = HomeFragment()
@@ -23,13 +26,11 @@ class CakeShopMainScreenActivity : AppCompatActivity() {
         val aboutUsFragment = AboutUsFragment()
         val accountFragment = AccountFragment()
 
-
-
         makeCurrentFragment(homeFragmet)
 
         binding.bottomNavgation.setOnNavigationItemSelectedListener {
 
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.ic_Home -> makeCurrentFragment(homeFragmet)
                 R.id.ic_Products -> makeCurrentFragment(productsFragment)
                 R.id.ic_AboutUs -> makeCurrentFragment(aboutUsFragment)
@@ -37,15 +38,11 @@ class CakeShopMainScreenActivity : AppCompatActivity() {
             }
             true
         }
-
     }
 
     private fun makeCurrentFragment(fragment: Fragment) =
-        supportFragmentManager.beginTransaction().apply{
-            replace(R.id.fl_wrapper,fragment)
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fl_wrapper, fragment)
             commit()
-
         }
-
-
 }
