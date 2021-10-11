@@ -36,6 +36,12 @@ class SignUpActivity : AppCompatActivity() {
             setResult(0, mainActivityIntent)
             finish()
         }
+        binding.btnAlreadyAcc.setOnClickListener {
+
+            startActivity(logginIntent)
+            finish()
+
+        }
         binding.btnSignup.setOnClickListener {
 
             CoroutineScope(Dispatchers.IO).launch {
