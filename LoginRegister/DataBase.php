@@ -42,7 +42,7 @@ class DataBase
         $result = mysqli_query($this->connect, $this->sql); //chose db and then do any action
         $row = mysqli_fetch_assoc($result);
         if (mysqli_num_rows($result) != 0) {
-            $dbusername = $row['username'];
+            $dbusername = $row['email'];
             $dbpassword = $row['password'];
             if ($dbusername == $email && password_verify($password, $dbpassword)) {
                 $login = true;
@@ -76,13 +76,17 @@ class DataBase
         if (mysqli_num_rows($result) != 0) {
             $dbemail = $row['email'];
             if ($dbemail == $email) {
-               $this->sql = "select * from " . $table . " where email = '" . $email . "'";
-                $this->sql ="INSERT INTO " . $table . " (password, email) VALUES ('" . $password . "','" . $email . "')";
+                $password = password_hash($password, PASSWORD_DEFAULT);
+               $this-> res=  "UPDATE $table SET password='" . $password. "' WHERE email = '" . $email . "'";
+                $email . $password;
+               mysqli_query($this->connect, $this->res);
                 $resetPassword = true;
             } else $resetPassword = false;
         } else $resetPassword = false;
         return $resetPassword;
     }
+
+    function
 
 }
 ?>
