@@ -36,10 +36,10 @@ class DataBase
 
     function logIn($table, $email, $password)
     {
-        $username = $this->prepareData($email);
+        $email = $this->prepareData($email);
         $password = $this->prepareData($password);
         $this->sql = "select * from " . $table . " where email = '" . $email . "'";
-        $result = mysqli_query($this->connect, $this->sql);
+        $result = mysqli_query($this->connect, $this->sql); //chose db and then do any action
         $row = mysqli_fetch_assoc($result);
         if (mysqli_num_rows($result) != 0) {
             $dbusername = $row['username'];
@@ -66,6 +66,23 @@ class DataBase
         } else return false;
     }
 
-}
+    function resetPassword($table, $email, $password){
 
+        $email = $this->prepareData($email);
+        $password = $this->prepareData($password);
+        $this->sql = "select * from " . $table . " where email = '" . $email . "'";
+        $result = mysqli_query($this->connect, $this->sql); //chose db and then do any action
+        $row = mysqli_fetch_assoc($result);
+        if (mysqli_num_rows($result) != 0) {
+            $dbemail = $row['email'];
+            if ($dbemail == $email) {
+               $this->sql = "select * from " . $table . " where email = '" . $email . "'";
+                $this->sql ="INSERT INTO " . $table . " (password, email) VALUES ('" . $password . "','" . $email . "')";
+                $resetPassword = true;
+            } else $resetPassword = false;
+        } else $resetPassword = false;
+        return $resetPassword;
+    }
+
+}
 ?>
