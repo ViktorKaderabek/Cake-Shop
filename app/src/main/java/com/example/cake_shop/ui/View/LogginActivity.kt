@@ -10,17 +10,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityLogginBinding
+import com.example.cake_shop.databinding.FragmentAccountBinding
 import com.example.cake_shop.ui.ViewModel.LoginViewModel
 import com.vishnusivadas.advanced_httpurlconnection.PutData
 
 class LogginActivity : AppCompatActivity() {
 
     private lateinit var logginViewModel: LoginViewModel
-    private lateinit var binding: ActivityLogginBinding
+    private lateinit var logginBinding: ActivityLogginBinding
+    private lateinit var accountBinding : FragmentAccountBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding=
+        logginBinding=
             DataBindingUtil.setContentView(this, R.layout.activity_loggin)
 
         val mainActivityIntent: Intent =
@@ -30,20 +33,20 @@ class LogginActivity : AppCompatActivity() {
         val resetPasswordIntent: Intent =
             Intent(this, ResetPasswordActivity::class.java)
 
-        binding.imbtnBack.setOnClickListener {
+        logginBinding.imbtnBack.setOnClickListener {
             setResult(0, mainActivityIntent)
             finish()
         }
 
-        binding.btnResetPwd.setOnClickListener {
+        logginBinding.btnResetPwd.setOnClickListener {
             startActivity(resetPasswordIntent)
             finish()
         }
 
-        binding.btnLogin.setOnClickListener {
+        logginBinding.btnLogin.setOnClickListener {
 
-            if (binding.edtxEmail.text.toString()
-                    .isNotEmpty() && binding.edtxPassword.text.toString()
+            if (logginBinding.edtxEmail.text.toString()
+                    .isNotEmpty() && logginBinding.edtxPassword.text.toString()
                     .isNotEmpty()
             ) {
                 val handler = Handler(Looper.getMainLooper())
@@ -54,8 +57,8 @@ class LogginActivity : AppCompatActivity() {
                     field[1] = "email"
                     //Creating array for data
                     val data = arrayOfNulls<String>(2)
-                    data[0] = binding.edtxPassword.text.toString()
-                    data[1] = binding.edtxEmail.text.toString()
+                    data[0] = logginBinding.edtxPassword.text.toString()
+                    data[1] = logginBinding.edtxEmail.text.toString()
 
                     val putData = PutData(
                         "http://192.168.0.242/LoginRegister/login.php",
@@ -66,7 +69,7 @@ class LogginActivity : AppCompatActivity() {
                     if (putData.startPut()) {
                         if (putData.onComplete()) {
                             val result = putData.result
-
+                            //accountBinding.textView2.text = field[1]
                             Log.i("PutData", result)
                             if (result == "Login Success") {
                                 Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT)

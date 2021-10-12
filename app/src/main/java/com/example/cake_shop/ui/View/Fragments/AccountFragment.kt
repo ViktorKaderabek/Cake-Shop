@@ -4,18 +4,27 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.example.cake_shop.databinding.ActivityLogginBinding
 import com.example.cake_shop.databinding.FragmentAccountBinding
 import com.example.cake_shop.ui.View.MainActivity
+import com.vishnusivadas.advanced_httpurlconnection.PutData
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @Suppress("DEPRECATION")
 class AccountFragment : Fragment() {
     private lateinit var binding: FragmentAccountBinding
+    private lateinit var logginBinding : ActivityLogginBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
