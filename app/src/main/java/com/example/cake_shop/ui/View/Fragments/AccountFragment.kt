@@ -15,6 +15,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.cake_shop.databinding.ActivityLogginBinding
 import com.example.cake_shop.databinding.FragmentAccountBinding
+import com.example.cake_shop.ui.View.LogginActivity
 import com.example.cake_shop.ui.View.MainActivity
 import com.vishnusivadas.advanced_httpurlconnection.PutData
 import kotlinx.coroutines.CoroutineScope
@@ -30,18 +31,23 @@ class AccountFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = DataBindingUtil.inflate(
             inflater, com.example.cake_shop.R.layout.fragment_account, container, false
         )
         val view = binding.root
 
+        val mainActivityIntent : Intent =
+            Intent(activity, MainActivity::class.java)
+        val logginIntent: Intent =
+            Intent(activity, LogginActivity::class.java)
+
         binding.btnSignOut.setOnClickListener {
-
-            val intent = Intent(activity, MainActivity::class.java)
-            startActivity(intent)
-
             Toast.makeText(activity, "You've been logged out", Toast.LENGTH_SHORT).show()
+            startActivity(mainActivityIntent)
         }
+
+        binding.textView2.text = logginIntent.getStringExtra("email").toString()
 
         binding.btnEditProfilePicture.setOnClickListener {
             val galleryIntent: Intent = Intent()
