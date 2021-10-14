@@ -67,6 +67,7 @@ class SignUpActivity : AppCompatActivity() {
                         data[1] = binding.edtxUserName.text.toString()
                         data[2] = binding.edtxPassword.text.toString()
                         data[3] = binding.edtxEmail.text.toString()
+
                         val putData = PutData(
                             "http://192.168.0.242/LoginRegister/signup.php",
                             "POST",
@@ -99,7 +100,8 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
         }
+
+
     }
 }
-
 
