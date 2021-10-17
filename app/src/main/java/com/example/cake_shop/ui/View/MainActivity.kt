@@ -28,8 +28,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
-
-
             startActivityForResult(loginIntent, 1)
         }
     }

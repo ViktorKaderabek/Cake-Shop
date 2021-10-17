@@ -15,6 +15,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".ui.View.InfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.View.AccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.View.AboutUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.View.HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.View.ResetPasswordActivity"
             android:exported="true" />
         <activity
