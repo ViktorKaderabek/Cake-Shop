@@ -26,6 +26,8 @@ class CakeShopMainScreenActivity : AppCompatActivity() {
         val aboutUsFragment = AboutUsFragment()
         val accountFragment = AccountFragment()
 
+
+
         makeCurrentFragment(homeFragmet)
 
         binding.bottomNavgation.setOnNavigationItemSelectedListener {
