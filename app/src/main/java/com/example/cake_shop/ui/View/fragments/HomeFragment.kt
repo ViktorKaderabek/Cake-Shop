@@ -49,18 +49,27 @@ class HomeFragment : Fragment() {
                 fastAdapter // Nastavuje recyclerview co bude obsahem
             homeFragmentBinding.recyclerview.setHasFixedSize(true)
 
-            for (i in 1..10) {
+
                 itemAdapter.add(
                     HomeFastAdapter(
                         HomeDataClass(
                             "AHoj",
                             "jak je ?",
-                            R.drawable.ic_baseline_arrow_back_ios_24
+                            R.drawable.cake_shop
                         )
                     )
                 )
-            }
+
+
 
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+
+
+
     }
 }
