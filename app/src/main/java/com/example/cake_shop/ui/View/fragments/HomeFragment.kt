@@ -22,15 +22,14 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         homeFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_home, container, false
         )
-
-
-
-
+        val view : View = homeFragmentBinding.root
 
         return view
+
     }
 
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
@@ -61,7 +60,7 @@ class HomeFragment : Fragment() {
                     )
                 )
             }
-            
+
         }
     }
 }
