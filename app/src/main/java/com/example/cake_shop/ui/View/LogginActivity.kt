@@ -27,10 +27,12 @@ class LogginActivity : AppCompatActivity() {
 
         val mainActivityIntent: Intent =
             Intent(this, MainActivity::class.java)
-        val homeActivityIntent: Intent =
-            Intent(this, HomeActivity::class.java)
         val resetPasswordIntent: Intent =
             Intent(this, ResetPasswordActivity::class.java)
+        val cakeShopIntent : Intent =
+            Intent(this, CakeShopActivity::class.java)
+
+
 
         logginBinding.imbtnBack.setOnClickListener {
             setResult(0, mainActivityIntent)
@@ -41,13 +43,17 @@ class LogginActivity : AppCompatActivity() {
             startActivity(resetPasswordIntent)
             finish()
         }
-
+        val email : String = logginBinding.edtxEmail.text.toString()
         logginBinding.btnLogin.setOnClickListener {
+
+
 
             if (logginBinding.edtxEmail.text.toString()
                     .isNotEmpty() && logginBinding.edtxPassword.text.toString()
                     .isNotEmpty()
             ) {
+
+
                 val handler = Handler(Looper.getMainLooper())
                 handler.post(Runnable {
 
@@ -67,12 +73,13 @@ class LogginActivity : AppCompatActivity() {
                     )
                     if (putData.startPut()) {
                         if (putData.onComplete()) {
-                            val result = putData.result // do p
+                            val result = putData.result
                             Log.i("PutData", result)
                             if (result == "Login Success") {
                                 Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT)
                                     .show()
-                                startActivity(homeActivityIntent)
+
+                                startActivity(cakeShopIntent)
                                 finish()
                             } else {
                                 Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT)

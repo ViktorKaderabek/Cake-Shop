@@ -17,6 +17,7 @@
         <entry key="..\:/Users/ninja/AndroidStudioProjects/Cake_Shop/app/src/main/res/drawable/random_picture_background.xml" value="0.287109375" />
         <entry key="..\:/Users/ninja/AndroidStudioProjects/Cake_Shop/app/src/main/res/layout/activity_about_us.xml" value="0.275" />
         <entry key="..\:/Users/ninja/AndroidStudioProjects/Cake_Shop/app/src/main/res/layout/activity_account.xml" value="0.15390625" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Cake_Shop/app/src/main/res/layout/activity_cake_shop.xml" value="0.2609289617486339" />
         <entry key="..\:/Users/ninja/AndroidStudioProjects/Cake_Shop/app/src/main/res/layout/activity_cake_shop_main_screen.xml" value="0.25" />
         <entry key="..\:/Users/ninja/AndroidStudioProjects/Cake_Shop/app/src/main/res/layout/activity_home.xml" value="0.275" />
         <entry key="..\:/Users/ninja/AndroidStudioProjects/Cake_Shop/app/src/main/res/layout/activity_info.xml" value="0.143359375" />
@@ -32,6 +33,7 @@
         <entry key="..\:/Users/ninja/AndroidStudioProjects/Cake_Shop/app/src/main/res/layout/fragment_home.xml" value="0.23515625" />
         <entry key="..\:/Users/ninja/AndroidStudioProjects/Cake_Shop/app/src/main/res/layout/fragment_products.xml" value="0.23515625" />
         <entry key="..\:/Users/ninja/AndroidStudioProjects/Cake_Shop/app/src/main/res/layout/home_items.xml" value="0.275" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Cake_Shop/app/src/main/res/menu/menu.xml" value="0.275" />
         <entry key="..\:/Users/ninja/AndroidStudioProjects/Cake_Shop/app/src/main/res/menu/nav_menu.xml" value="0.15390625" />
       </map>
     </option>
