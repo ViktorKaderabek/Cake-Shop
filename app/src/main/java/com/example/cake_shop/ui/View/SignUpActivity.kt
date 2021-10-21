@@ -47,9 +47,9 @@ class SignUpActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.IO).launch {
 
                 if (binding.edtxFullname.text.toString()
-                        .isNotEmpty() && binding.edtxFullname.text.toString()
-                        .isNotEmpty() && binding.edtxFullname.text.toString()
-                        .isNotEmpty() && binding.edtxFullname.text.toString()
+                        .isNotEmpty() && binding.edtxEmail.text.toString()
+                        .isNotEmpty() && binding.edtxPassword.text.toString()
+                        .isNotEmpty() && binding.edtxUserName.text.toString()
                         .isNotEmpty()
                 ) {
                     val handler = Handler(Looper.getMainLooper())
