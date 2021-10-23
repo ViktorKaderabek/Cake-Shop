@@ -2,8 +2,7 @@ package com.example.cake_shop.ui.View
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.os.StrictMode
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -11,20 +10,33 @@ import androidx.databinding.DataBindingUtil
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivitySignupBinding
 import com.example.cake_shop.ui.ViewModel.SignUpViewModel
-import com.vishnusivadas.advanced_httpurlconnection.PutData
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import java.sql.*
 
 
 class SignUpActivity : AppCompatActivity() {
+    private val ip = "192.168.0.242"
+    private val port = "1300"
+    private val ss = "net.sourceforge.jtds.jdbc.Driver"
+    private val database = "UserDB"
+    private val us = "test"
+    private val pass = "1234"
+    private val url = "jdbc:jtds:sqlserver://$ip:$port/$database"
+    private var connRes: String? = null
+    private var finalResult: String? = null
+    private var connection: Connection? = null
+
+    private var id = 0
+    private var username: String? = null
+    private var email: String? = null
+    private var password: String? = null
+    private var name: String? = null
 
     private lateinit var signUpViwModel: SignUpViewModel
     private lateinit var binding: ActivitySignupBinding
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding =
             DataBindingUtil.setContentView(this, R.layout.activity_signup)
 
@@ -42,63 +54,61 @@ class SignUpActivity : AppCompatActivity() {
             finish()
         }
 
+        // CoroutineScope(Dispatchers.IO).launch {
+        val policy: StrictMode.ThreadPolicy =
+            StrictMode.ThreadPolicy.Builder().permitAll().build()
+
+        StrictMode.setThreadPolicy(policy)
+
+        try {
+            Class.forName("net.sourceforge.jtds.jdbc.Driver")
+            connection = DriverManager.getConnection(url, us, pass)
+            connRes = "SUCCESS"
+        } catch (exception: ClassNotFoundException) {
+            exception.printStackTrace()
+            connRes = "ERROR"
+            Log.e("Error :", exception.message.toString())
+        } catch (exception: SQLException) {
+            exception.printStackTrace()
+            connRes = "FAILURE"
+            Log.e("Error :", exception.message.toString())
+        }
+        //  }
+
+
         binding.btnSignup.setOnClickListener {
 
-            CoroutineScope(Dispatchers.IO).launch {
+            if (binding.edtxEmail.text.isNotEmpty() &&
+                binding.edtxUserName.text.isNotEmpty() &&
+                binding.edtxPassword.text.isNotEmpty() &&
+                binding.edtxFullname.text.isNotEmpty()
+            ) {
+                if (connRes == "SUCCESS") {
 
-                if (binding.edtxFullname.text.toString()
-                        .isNotEmpty() && binding.edtxEmail.text.toString()
-                        .isNotEmpty() && binding.edtxPassword.text.toString()
-                        .isNotEmpty() && binding.edtxUserName.text.toString()
-                        .isNotEmpty()
-                ) {
-                    val handler = Handler(Looper.getMainLooper())
-                    handler.post(Runnable {
-                        //Starting Write and Read data with URL
-                        //Creating array for parameters
-                        val field = arrayOfNulls<String>(4)
-                        field[0] = "fullname"
-                        field[1] = "username"
-                        field[2] = "password"
-                        field[3] = "email"
-                        //Creating array for data
-                        val data = arrayOfNulls<String>(4)
-                        data[0] = binding.edtxFullname.text.toString()
-                        data[1] = binding.edtxUserName.text.toString()
-                        data[2] = binding.edtxPassword.text.toString()
-                        data[3] = binding.edtxEmail.text.toString()
+                    email = binding.edtxEmail.text.toString()
+                    username = binding.edtxUserName.text.toString()
+                    password = binding.edtxPassword.text.toString()
+                    name = binding.edtxFullname.text.toString()
 
-                        val putData = PutData(
-                            "http://192.168.0.242/LoginRegister/signup.php",
-                            "POST",
-                            field,
-                            data
-                        )
-                        if (putData.startPut()) {
-                            if (putData.onComplete()) {
-                                val result = putData.result
-                                //End ProgressBar (Set visibility to GONE)
-                                Log.i("PutData", result)
-                                if (result == "Sign Up Success") {
-                                    Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT)
-                                        .show()
-                                    startActivity(logginIntent)
-                                    finish()
-                                } else {
-                                    Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT)
-                                        .show()
-                                }
-                            }
-                        } //End Write and Read data with URL
-                    })
+                    var statement: Statement? = null
+                    try {
+                       /* val resultSet: ResultSet =
+                            statement.executeQuery("Select email * From Table_User(email)")*/
+                        id += 1
+                        statement = connection!!.createStatement()
+                        val resultSet: ResultSet =
+                            statement.executeQuery("Insert into Table_User(email,Username,id,Name,password) VALUES ('$email','$username','$id','$name','$password');")
+
+                    } catch (e: SQLException) {
+                        e.printStackTrace()
+                    }
                 } else {
-                    Toast.makeText(
-                        applicationContext,
-                        "All fields are required",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(applicationContext, "Connection is null", Toast.LENGTH_SHORT).show()
                 }
+            }else {
+                Toast.makeText(applicationContext, "All fields are required", Toast.LENGTH_SHORT).show()
             }
+
         }
     }
 }
