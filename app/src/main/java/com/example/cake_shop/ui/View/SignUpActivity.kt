@@ -54,7 +54,6 @@ class SignUpActivity : AppCompatActivity() {
             finish()
         }
 
-        // CoroutineScope(Dispatchers.IO).launch {
         val policy: StrictMode.ThreadPolicy =
             StrictMode.ThreadPolicy.Builder().permitAll().build()
 
@@ -73,9 +72,6 @@ class SignUpActivity : AppCompatActivity() {
             connRes = "FAILURE"
             Log.e("Error :", exception.message.toString())
         }
-        //  }
-
-
         binding.btnSignup.setOnClickListener {
 
             if (binding.edtxEmail.text.isNotEmpty() &&
@@ -92,8 +88,8 @@ class SignUpActivity : AppCompatActivity() {
 
                     var statement: Statement? = null
                     try {
-                       /* val resultSet: ResultSet =
-                            statement.executeQuery("Select email * From Table_User(email)")*/
+                        /* val resultSet: ResultSet =
+                             statement.executeQuery("Select email * From Table_User(email)")*/
                         id += 1
                         statement = connection!!.createStatement()
                         val resultSet: ResultSet =
@@ -103,12 +99,13 @@ class SignUpActivity : AppCompatActivity() {
                         e.printStackTrace()
                     }
                 } else {
-                    Toast.makeText(applicationContext, "Connection is null", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Connection is null", Toast.LENGTH_SHORT)
+                        .show()
                 }
-            }else {
-                Toast.makeText(applicationContext, "All fields are required", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(applicationContext, "All fields are required", Toast.LENGTH_SHORT)
+                    .show()
             }
-
         }
     }
 }
