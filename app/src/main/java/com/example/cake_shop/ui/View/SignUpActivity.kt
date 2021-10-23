@@ -12,7 +12,6 @@ import com.example.cake_shop.databinding.ActivitySignupBinding
 import com.example.cake_shop.ui.ViewModel.SignUpViewModel
 import java.sql.*
 
-
 class SignUpActivity : AppCompatActivity() {
     private val ip = "192.168.0.242"
     private val port = "1300"
