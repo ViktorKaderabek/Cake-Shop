@@ -15,16 +15,13 @@ import java.sql.*
 class SignUpActivity : AppCompatActivity() {
     private val ip = "192.168.0.242"
     private val port = "1300"
-    private val ss = "net.sourceforge.jtds.jdbc.Driver"
-    private val database = "UserDB"
+    private val database = "User_DB"
     private val us = "test"
     private val pass = "1234"
     private val url = "jdbc:jtds:sqlserver://$ip:$port/$database"
     private var connRes: String? = null
-    private var finalResult: String? = null
     private var connection: Connection? = null
 
-    private var id = 0
     private var username: String? = null
     private var email: String? = null
     private var password: String? = null
@@ -87,13 +84,12 @@ class SignUpActivity : AppCompatActivity() {
 
                     var statement: Statement? = null
                     try {
-                        /* val resultSet: ResultSet =
-                             statement.executeQuery("Select email * From Table_User(email)")*/
-                        id += 1
+                        startActivity(logginIntent)
+                        Toast.makeText(applicationContext, "Successful Sign Up", Toast.LENGTH_SHORT)
+                            .show()
                         statement = connection!!.createStatement()
                         val resultSet: ResultSet =
-                            statement.executeQuery("Insert into Table_User(email,Username,id,Name,password) VALUES ('$email','$username','$id','$name','$password');")
-
+                            statement.executeQuery("Insert into Users(email,username,name,password) VALUES ('$email','$username','$name','$password');")
                     } catch (e: SQLException) {
                         e.printStackTrace()
                     }
