@@ -106,7 +106,8 @@ class LogginActivity : AppCompatActivity() {
 
                             if (result1 == "1") {
                                 startActivity(cakeShopIntent)
-
+                                query1 =
+                                    statement.executeQuery("Update EmailHolder Set email = ('$email') where id = ('1');")
                                 Toast.makeText(
                                     applicationContext,
                                     "Successful Log In",
