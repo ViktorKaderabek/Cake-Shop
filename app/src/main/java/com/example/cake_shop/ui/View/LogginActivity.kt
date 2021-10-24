@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.os.StrictMode
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,8 +13,22 @@ import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityLogginBinding
 import com.example.cake_shop.ui.ViewModel.LoginViewModel
 import com.vishnusivadas.advanced_httpurlconnection.PutData
+import java.sql.*
 
 class LogginActivity : AppCompatActivity() {
+    private val ip = "192.168.0.242" //ip addressa na ktere bezi server
+    private val port = "1300" // cislo portu
+    private val database = "User_DB" //nazev Databaze
+    private val us = "test" //prihlasovaci udaje do Sql Serveru
+    private val pass = "1234"//prihlasovaci udaje do Sql Serveru
+    private val url = "jdbc:jtds:sqlserver://$ip:$port/$database" //url pres ktery se prihlasuje do dbs nemeni se!!
+    private var connRes: String? = null
+    private var connection: Connection? = null
+
+
+    private var email: String? = null
+    private var password: String? = null
+
 
     private lateinit var logginViewModel: LoginViewModel //Vytvarim promennou, ktera odkazuje na ViewModel pro tuto tridu
     private lateinit var logginBinding: ActivityLogginBinding
@@ -43,57 +58,78 @@ class LogginActivity : AppCompatActivity() {
             startActivity(resetPasswordIntent)
             finish()
         }
-        val email : String = logginBinding.edtxEmail.text.toString()
+
+
+
+        val policy: StrictMode.ThreadPolicy =
+            StrictMode.ThreadPolicy.Builder().permitAll().build()
+
+        StrictMode.setThreadPolicy(policy)
+
+        try {//zkousi se pripojit do me dbs
+            Class.forName("net.sourceforge.jtds.jdbc.Driver")//nemeni se
+            connection = DriverManager.getConnection(url, us, pass)//zadava url a prihlasovaci udaje
+            connRes = "SUCCESS" // nastavuje vysledek jako uspescny
+        } catch (exception: ClassNotFoundException) {
+            exception.printStackTrace()
+            connRes = "ERROR"// nastavuje vysledek jako neuspesny
+            Log.e("Error :", exception.message.toString())
+        } catch (exception: SQLException) {
+            exception.printStackTrace()
+            connRes = "FAILURE"
+            Log.e("Error :", exception.message.toString())
+        }
         logginBinding.btnLogin.setOnClickListener {
 
+            if (logginBinding.edtxEmail.text.isNotEmpty() &&//pokud jsou vsechna pole zaplnena tak se provede podminka
+                logginBinding.edtxPassword.text.isNotEmpty()
 
-
-            if (logginBinding.edtxEmail.text.toString()
-                    .isNotEmpty() && logginBinding.edtxPassword.text.toString()
-                    .isNotEmpty()
             ) {
+                if (connRes == "SUCCESS") { //pokud se pripojeni k dbs zdarilo stane se podminka
 
+                    email = logginBinding.edtxEmail.text.toString()
+                    password = logginBinding.edtxPassword.text.toString()
 
-                val handler = Handler(Looper.getMainLooper())
-                handler.post(Runnable {
+                    var statement: Statement? = null
+                    try {
 
-                    val field = arrayOfNulls<String>(2) //promenna ktera je Array s nazvem field
-                    field[0] = "password" //nazev fieldu [0]
-                    field[1] = "email" //nazev fieldu [1]
-                    //Creating array for data
-                    val data = arrayOfNulls<String>(2)//promenna ktera je Array s nazvem data
-                    data[0] = logginBinding.edtxPassword.text.toString() //nazev data [0]
-                    data[1] = logginBinding.edtxEmail.text.toString()//nazev data [1]
+                        statement = connection!!.createStatement()
 
-                    val putData = PutData( //promenna s nazvem putData
-                        "http://192.168.0.242/LoginRegister/login.php", //vkladam do ni url adresu ktera odkazuje na funkci v php jazyce
-                        "POST",
-                        field, //tady zadavam do field[0] password z data[0]
-                        data
-                    )
-                    if (putData.startPut()) {
-                        if (putData.onComplete()) {
-                            val result = putData.result
-                            Log.i("PutData", result)
-                            if (result == "Login Success") {
-                                Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT)
-                                    .show()
+                        var resultSet: ResultSet =
+                            statement.executeQuery("SELECT COUNT(1) as NumberOfRows FROM Users where email = ('$email')")//secte kolik je shod s danou email.adress
+                        var result: String = ""
 
+                        if (resultSet.next()) {
+                            result = resultSet.getString(1)
+
+                            if (result == "1") {
                                 startActivity(cakeShopIntent)
-                                finish()
-                            } else {
-                                Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT)
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Successful Log In",
+                                    Toast.LENGTH_SHORT
+                                )
+                                    .show()
+                            }else if (result == "0"){
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Incorrect email or password",
+                                    Toast.LENGTH_SHORT
+                                )
                                     .show()
                             }
                         }
-                    } //End Write and Read data with URL
-                })
+
+                    } catch (e: SQLException) {
+                        e.printStackTrace()
+                    }
+
+                } else {
+                    Toast.makeText(applicationContext, "Connection is null", Toast.LENGTH_SHORT)
+                        .show()
+                }
             } else {
-                Toast.makeText(
-                    applicationContext,
-                    "All fields are requiredsdds",
-                    Toast.LENGTH_SHORT
-                )
+                Toast.makeText(applicationContext, "All fields are required", Toast.LENGTH_SHORT)
                     .show()
             }
         }
