@@ -1,5 +1,6 @@
 package com.example.cake_shop.ui.View
 
+import AccountFragment
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -105,6 +106,7 @@ class LogginActivity : AppCompatActivity() {
 
                             if (result1 == "1") {
                                 startActivity(cakeShopIntent)
+
                                 Toast.makeText(
                                     applicationContext,
                                     "Successful Log In",
