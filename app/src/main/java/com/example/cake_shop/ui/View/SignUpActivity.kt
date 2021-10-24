@@ -84,15 +84,40 @@ class SignUpActivity : AppCompatActivity() {
 
                     var statement: Statement? = null
                     try {
-                        startActivity(logginIntent)
-                        Toast.makeText(applicationContext, "Successful Sign Up", Toast.LENGTH_SHORT)
-                            .show()
+
                         statement = connection!!.createStatement()
-                        val resultSet: ResultSet =
-                            statement.executeQuery("Insert into Users(email,username,name,password) VALUES ('$email','$username','$name','$password');")
+
+                        var resultSet: ResultSet =
+                            statement.executeQuery("SELECT COUNT(1) as NumberOfRows FROM Users where email = ('$email')")
+                        var result: String = ""
+
+                        if (resultSet.next()) {
+                            result = resultSet.getString(1)
+
+                            if (result == "0") {
+                                startActivity(logginIntent)
+                                resultSet =
+                                    statement.executeQuery("Insert into Users(email,username,name,password) VALUES ('$email','$username','$name','$password');")
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Successful Sign Up",
+                                    Toast.LENGTH_SHORT
+                                )
+                                    .show()
+                            }else{
+                                Toast.makeText(
+                                    applicationContext,
+                                    "User Already Exists",
+                                    Toast.LENGTH_SHORT
+                                )
+                                    .show()
+                            }
+                        }
+
                     } catch (e: SQLException) {
                         e.printStackTrace()
                     }
+
                 } else {
                     Toast.makeText(applicationContext, "Connection is null", Toast.LENGTH_SHORT)
                         .show()
