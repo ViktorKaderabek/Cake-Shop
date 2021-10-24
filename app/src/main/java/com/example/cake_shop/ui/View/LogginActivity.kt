@@ -95,14 +95,15 @@ class LogginActivity : AppCompatActivity() {
 
                         statement = connection!!.createStatement()
 
-                        var resultSet: ResultSet =
-                            statement.executeQuery("SELECT COUNT(1) as NumberOfRows FROM Users where email = ('$email')")//secte kolik je shod s danou email.adress
-                        var result: String = ""
+                        var query1: ResultSet =
+                            statement.executeQuery("SELECT COUNT(1) as NumberOfRows FROM Users where email = ('$email')")
+                        var result1: String = ""
 
-                        if (resultSet.next()) {
-                            result = resultSet.getString(1)
 
-                            if (result == "1") {
+                        if (query1.next()) {
+                            result1 = query1.getString(1)
+
+                            if (result1 == "1") {
                                 startActivity(cakeShopIntent)
                                 Toast.makeText(
                                     applicationContext,
@@ -110,7 +111,7 @@ class LogginActivity : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 )
                                     .show()
-                            }else if (result == "0"){
+                            }else if (result1 == "0"){
                                 Toast.makeText(
                                     applicationContext,
                                     "Incorrect email or password",
