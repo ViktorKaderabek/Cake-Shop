@@ -13,12 +13,12 @@ import com.example.cake_shop.ui.ViewModel.SignUpViewModel
 import java.sql.*
 
 class SignUpActivity : AppCompatActivity() {
-    private val ip = "192.168.0.242"
-    private val port = "1300"
-    private val database = "User_DB"
-    private val us = "test"
-    private val pass = "1234"
-    private val url = "jdbc:jtds:sqlserver://$ip:$port/$database"
+    private val ip = "192.168.0.242" //ip addressa na ktere bezi server
+    private val port = "1300" // cislo portu
+    private val database = "User_DB" //nazev Databaze
+    private val us = "test" //prihlasovaci udaje do Sql Serveru
+    private val pass = "1234"//prihlasovaci udaje do Sql Serveru
+    private val url = "jdbc:jtds:sqlserver://$ip:$port/$database" //url pres ktery se prihlasuje do dbs nemeni se!!
     private var connRes: String? = null
     private var connection: Connection? = null
 
@@ -55,13 +55,13 @@ class SignUpActivity : AppCompatActivity() {
 
         StrictMode.setThreadPolicy(policy)
 
-        try {
-            Class.forName("net.sourceforge.jtds.jdbc.Driver")
-            connection = DriverManager.getConnection(url, us, pass)
-            connRes = "SUCCESS"
+        try {//zkousi se pripojit do me dbs
+            Class.forName("net.sourceforge.jtds.jdbc.Driver")//nemeni se
+            connection = DriverManager.getConnection(url, us, pass)//zadava url a prihlasovaci udaje
+            connRes = "SUCCESS" // nastavuje vysledek jako uspescny
         } catch (exception: ClassNotFoundException) {
             exception.printStackTrace()
-            connRes = "ERROR"
+            connRes = "ERROR"// nastavuje vysledek jako neuspesny
             Log.e("Error :", exception.message.toString())
         } catch (exception: SQLException) {
             exception.printStackTrace()
@@ -70,12 +70,12 @@ class SignUpActivity : AppCompatActivity() {
         }
         binding.btnSignup.setOnClickListener {
 
-            if (binding.edtxEmail.text.isNotEmpty() &&
+            if (binding.edtxEmail.text.isNotEmpty() &&//pokud jsou vsechna pole zaplnena tak se provede podminka
                 binding.edtxUserName.text.isNotEmpty() &&
                 binding.edtxPassword.text.isNotEmpty() &&
                 binding.edtxFullname.text.isNotEmpty()
             ) {
-                if (connRes == "SUCCESS") {
+                if (connRes == "SUCCESS") { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     email = binding.edtxEmail.text.toString()
                     username = binding.edtxUserName.text.toString()
@@ -88,7 +88,7 @@ class SignUpActivity : AppCompatActivity() {
                         statement = connection!!.createStatement()
 
                         var resultSet: ResultSet =
-                            statement.executeQuery("SELECT COUNT(1) as NumberOfRows FROM Users where email = ('$email')")
+                            statement.executeQuery("SELECT COUNT(1) as NumberOfRows FROM Users where email = ('$email')")//secte kolik je shod s danou email.adress
                         var result: String = ""
 
                         if (resultSet.next()) {
