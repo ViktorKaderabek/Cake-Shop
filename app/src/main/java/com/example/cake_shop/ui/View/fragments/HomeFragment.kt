@@ -9,8 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.FragmentHomeBinding
-import com.example.cake_shop.model.HomeDataClass
-import com.example.cake_shop.ui.View.CakeShopActivity
+import com.example.cake_shop.model.data.HomeDataClass
 import com.example.cake_shop.ui.adapter.HomeFastAdapter
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
@@ -28,7 +27,7 @@ class HomeFragment : Fragment() {
         homeFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_home, container, false
         )
-        val view : View = homeFragmentBinding.root
+        val view: View = homeFragmentBinding.root
 
         return view
 
@@ -45,7 +44,7 @@ class HomeFragment : Fragment() {
             val fastAdapter =
                 FastAdapter.with(itemAdapter) //promenna ktera v sobe uchovava udaje o tom co je v adapteru
 
-            var position : Int = 0
+            var position: Int = 0
 
             homeFragmentBinding.recyclerview.layoutManager =
                 LinearLayoutManager(activity)
@@ -53,8 +52,7 @@ class HomeFragment : Fragment() {
                 fastAdapter // Nastavuje recyclerview co bude obsahem
             homeFragmentBinding.recyclerview.setHasFixedSize(true)
 
-            for(i in 1..10) {
-
+            for (i in 1..10) {
 
 
                 itemAdapter.add(
@@ -68,20 +66,6 @@ class HomeFragment : Fragment() {
                 )
             }
 
-
-
         }
     }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-
-
-
-
-
-    }
-
-
-
 }

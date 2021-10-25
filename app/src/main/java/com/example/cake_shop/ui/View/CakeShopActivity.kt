@@ -8,7 +8,7 @@ import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityCakeShopBinding
 import com.example.cake_shop.ui.View.fragments.AboutUsFramgen
 import com.example.cake_shop.ui.View.fragments.HomeFragment
-import com.example.cake_shop.ui.View.fragments.InfoFragment
+import com.example.cake_shop.ui.View.fragments.ContactsFragment
 
 @Suppress("DEPRECATION")
 class CakeShopActivity : AppCompatActivity() {
@@ -96,7 +96,7 @@ class CakeShopActivity : AppCompatActivity() {
                     } else {
                         //if the fragment does not exist, add it to fragment manager.
                         supportFragmentManager.beginTransaction()
-                            .add(R.id.fl_wrapper, InfoFragment(), "InfoTag").commit()
+                            .add(R.id.fl_wrapper, ContactsFragment(), "InfoTag").commit()
 
 
                     }

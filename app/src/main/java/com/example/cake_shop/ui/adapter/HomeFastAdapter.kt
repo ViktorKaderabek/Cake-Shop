@@ -5,9 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.HomeItemsBinding
-import com.example.cake_shop.model.HomeDataClass
+import com.example.cake_shop.model.data.HomeDataClass
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
-import kotlin.random.Random
 
 class HomeFastAdapter(val homeItem: HomeDataClass) :
     AbstractBindingItem<HomeItemsBinding>() {
