@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.cake_shop.databinding.FragmentAccountBinding
@@ -39,14 +38,7 @@ class AccountFragment : Fragment() {
             inflater, com.example.cake_shop.R.layout.fragment_account, container, false
         )
         val view = binding.root
-
-        binding.btnSignOut.setOnClickListener {
-
-            val intent = Intent(activity, MainActivity::class.java)
-            startActivity(intent)
-
-            Toast.makeText(activity, "You've been logged out", Toast.LENGTH_SHORT).show()
-        }
+        val intent = Intent(activity, MainActivity::class.java)
 
         binding.btnEditProfilePicture.setOnClickListener {
             val galleryIntent: Intent = Intent()
@@ -74,7 +66,21 @@ class AccountFragment : Fragment() {
             Log.e("Error :", exception.message.toString())
         }
 
+        binding.btnSignOut.setOnClickListener {
+            startActivity(intent)
+            try {
+                if (connRes == "SUCCESS") {
 
+                    var statement2: Statement? = null
+                    statement2 = connection!!.createStatement()
+                    val query2: ResultSet =
+                        statement2.executeQuery("Update EmailHolder Set state = ('NULL'),email = ('NULL') where id = ('1');")
+                }
+            }catch(e : Exception){
+
+                Log.e("Error :", e.message.toString())
+            }
+        }
 
         if (connRes == "SUCCESS") { //pokud se pripojeni k dbs zdarilo stane se podminka
 
