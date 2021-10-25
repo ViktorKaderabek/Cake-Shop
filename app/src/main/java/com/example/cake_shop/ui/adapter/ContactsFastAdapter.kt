@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.provider.ContactsContract
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.cake_shop.R
@@ -12,6 +13,7 @@ import com.example.cake_shop.databinding.HomeItemsBinding
 import com.example.cake_shop.model.data.ContactsDataClass
 import com.example.cake_shop.model.data.HomeDataClass
 import com.example.cake_shop.ui.View.fragments.ContactsFragment
+import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 
 class ContactsFastAdapter(val contactsItem: ContactsDataClass) :
@@ -35,17 +37,11 @@ class ContactsFastAdapter(val contactsItem: ContactsDataClass) :
         binding.txtMailTopic.text = contactsItem.mail_topic
         binding.txtMailAddresse.text = contactsItem.mail_addresse
 
-
-
-
-
     }
+
     override fun createBinding( inflater: LayoutInflater, parent: ViewGroup?): ContactsItemBinding {
-
-
-
-
         return ContactsItemBinding.inflate(inflater, parent, false)
     }
+
 
 }

@@ -10,12 +10,19 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cake_shop.R
-import com.example.cake_shop.databinding.ContactsItemBinding
 import com.example.cake_shop.databinding.FragmentContactsBinding
 import com.example.cake_shop.model.data.ContactsDataClass
 import com.example.cake_shop.ui.adapter.ContactsFastAdapter
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
+import com.mikepenz.fastadapter.IItem
+
+import com.mikepenz.fastadapter.IAdapter
+
+
+
+
+
 @Suppress("DEPRECATION")
 class ContactsFragment : Fragment() {
 
@@ -32,11 +39,7 @@ class ContactsFragment : Fragment() {
         )
         val view: View = contactsFragmentBinding.root
 
-        contactsFragmentBinding.textView4.setOnClickListener {
-            val contactsIntent = Intent(ContactsContract.Intents.Insert.ACTION)
-            contactsIntent.setType(ContactsContract.RawContacts.CONTENT_TYPE)
-            contactsIntent.putExtra(ContactsContract.Intents.Insert.PHONE, contactsFragmentBinding.textView4.text)
-        }
+
 
         return view
     }
@@ -77,7 +80,11 @@ class ContactsFragment : Fragment() {
                 )
             )
 
+
+
         }
+
+
     }
 
 }
