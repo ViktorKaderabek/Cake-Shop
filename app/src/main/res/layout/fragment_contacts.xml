@@ -48,7 +48,7 @@
             android:layout_width="350dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="Makovského 1227/15, 163 00 Praha 17-Řepy"
+
             android:textColor="#478AC9"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/txt_locationTopic"
@@ -84,7 +84,6 @@
             android:layout_width="325dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="+420 605 058 155"
             android:textColor="#478AC9"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/txt_phoneTopic"
@@ -120,15 +119,12 @@
             android:layout_width="325dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="info@CakeShop.cz"
             android:textColor="#478AC9"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/txt_mailTopic"
             app:layout_constraintStart_toStartOf="@+id/txt_mailTopic"
             app:layout_constraintTop_toBottomOf="@+id/txt_mailTopic" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </layout>

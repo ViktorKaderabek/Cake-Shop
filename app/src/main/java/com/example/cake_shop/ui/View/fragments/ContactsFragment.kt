@@ -97,6 +97,10 @@ class ContactsFragment : Fragment() {
             }
         }
 
+        contactsFragmentBinding.txtMailAddresse.text = email
+        contactsFragmentBinding.txtAddresse.text = address
+        contactsFragmentBinding.txtPhoneNumber.text = phone
+
         contactsFragmentBinding.txtMailAddresse.setOnClickListener {
             val emailIntent =
                 Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", email, null))
