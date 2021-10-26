@@ -1,6 +1,7 @@
 package com.example.cake_shop.ui.View.fragments
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.view.LayoutInflater
@@ -8,19 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.FragmentContactsBinding
-import com.example.cake_shop.model.data.ContactsDataClass
-import com.example.cake_shop.ui.adapter.ContactsFastAdapter
-import com.mikepenz.fastadapter.FastAdapter
-import com.mikepenz.fastadapter.adapters.ItemAdapter
-import com.mikepenz.fastadapter.IItem
-
-import com.mikepenz.fastadapter.IAdapter
-
-
-
 
 
 @Suppress("DEPRECATION")
@@ -40,51 +30,35 @@ class ContactsFragment : Fragment() {
         val view: View = contactsFragmentBinding.root
 
 
+        contactsFragmentBinding.txtMailAddresse.setOnClickListener {
+            val emailIntent: Intent =
+                Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "info@CakeShop.cz", null))
+            startActivity(Intent.createChooser(emailIntent, "Send email..."))
+        }
+
+        contactsFragmentBinding.txtAddresse.setOnClickListener {
+            val mapIntent: Intent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("geo:50.0654, 14.3035?q=50.0654,14.3035 (Label+Name)")
+            )
+            mapIntent.setPackage("com.google.android.apps.maps")
+            startActivity(mapIntent)
+        }
+
+        contactsFragmentBinding.txtPhoneNumber.setOnClickListener {
+            val contactsIntent: Intent =
+                Intent(Intent.ACTION_INSERT, ContactsContract.Contacts.CONTENT_URI)
+            contactsIntent.putExtra("phone", "420 605 058 155");
+            contactsIntent.putExtra("name", "CakeShop.cz");
+            contactsIntent.putExtra("email", "info@CakeShop.cz");
+            contactsIntent.putExtra("address", "Makovského 1227/15, 163 00 Praha 17-Řepy");
+
+            startActivity(contactsIntent)
+
+        }
 
         return view
     }
 
-
-    override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(itemView, savedInstanceState)
-        contactsFragmentBinding.recyclerview.apply {
-            // set a LinearLayoutManager to handle Android
-            // RecyclerView behavior
-            val itemAdapter =
-                ItemAdapter<ContactsFastAdapter>()
-
-            val fastAdapter =
-                FastAdapter.with(itemAdapter) //promenna ktera v sobe uchovava udaje o tom co je v adapteru
-
-            var position: Int = 0
-
-            contactsFragmentBinding.recyclerview.layoutManager =
-                LinearLayoutManager(context)
-            contactsFragmentBinding.recyclerview.adapter =
-                fastAdapter // Nastavuje recyclerview co bude obsahem
-            contactsFragmentBinding.recyclerview.setHasFixedSize(true)
-
-            itemAdapter.add(
-                ContactsFastAdapter(
-                    ContactsDataClass(
-                        R.drawable.ic_baseline_location_on_24,
-                        "OUR MAIN OFFICE",
-                        "15, Makovského 1227, 163 00 Praha 17",
-                        R.drawable.ic_baseline_local_phone_24,
-                        "PHONE NUMBER",
-                        "+420 605 058 155",
-                        R.drawable.ic_baseline_mail_24,
-                        "MAIL ADDRESSE",
-                        "info@CakeShop.cz"
-                    )
-                )
-            )
-
-
-
-        }
-
-
-    }
 
 }

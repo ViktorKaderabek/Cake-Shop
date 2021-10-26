@@ -7,8 +7,8 @@ import androidx.databinding.DataBindingUtil
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityCakeShopBinding
 import com.example.cake_shop.ui.View.fragments.AboutUsFramgen
-import com.example.cake_shop.ui.View.fragments.HomeFragment
 import com.example.cake_shop.ui.View.fragments.ContactsFragment
+import com.example.cake_shop.ui.View.fragments.HomeFragment
 
 @Suppress("DEPRECATION")
 class CakeShopActivity : AppCompatActivity() {
@@ -67,8 +67,6 @@ class CakeShopActivity : AppCompatActivity() {
                         //if the fragment does not exist, add it to fragment manager.
                         supportFragmentManager.beginTransaction()
                             .add(R.id.fl_wrapper, AboutUsFramgen(), "AboutUsTag").commit()
-
-
                     }
                     if (supportFragmentManager.findFragmentByTag("HomeTag") != null) {
                         //if the other fragment is visible, hide it.
@@ -97,7 +95,6 @@ class CakeShopActivity : AppCompatActivity() {
                         //if the fragment does not exist, add it to fragment manager.
                         supportFragmentManager.beginTransaction()
                             .add(R.id.fl_wrapper, ContactsFragment(), "InfoTag").commit()
-
 
                     }
                     if (supportFragmentManager.findFragmentByTag("HomeTag") != null) {
