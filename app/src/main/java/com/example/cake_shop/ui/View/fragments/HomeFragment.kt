@@ -52,19 +52,41 @@ class HomeFragment : Fragment() {
                 fastAdapter // Nastavuje recyclerview co bude obsahem
             homeFragmentBinding.recyclerview.setHasFixedSize(true)
 
-            for (i in 1..10) {
 
 
-                itemAdapter.add(
-                    HomeFastAdapter(
-                        HomeDataClass(
-                            "AHoj",
-                            "jak je ?",
-                            R.drawable.cake_shop
-                        )
+            itemAdapter.add(
+                HomeFastAdapter(
+                    HomeDataClass(
+                        "  Home",
+                        "  Let's Find Out Who We Are !!",
+                        R.drawable.cake_shop,
+                        R.drawable.ic_baseline_home_24
                     )
                 )
-            }
+            )
+
+            itemAdapter.add(
+                HomeFastAdapter(
+                    HomeDataClass(
+                        "  Products",
+                        "  Enjoy Our Products Here Right Now !!",
+                        R.drawable.cake_shop_products,
+                        R.drawable.product
+                    )
+                )
+            )
+
+            itemAdapter.add(
+                HomeFastAdapter(
+                    HomeDataClass(
+                        "  Our Employees",
+                        "  Become Our Employee And Find YourSelf Here !!",
+                        R.drawable.happy_employee,
+                        R.drawable.employee
+                    )
+                )
+            )
+
 
         }
     }
