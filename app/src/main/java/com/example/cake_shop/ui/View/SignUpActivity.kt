@@ -30,7 +30,6 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var signUpViwModel: SignUpViewModel
     private lateinit var binding: ActivitySignupBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =
@@ -104,7 +103,7 @@ class SignUpActivity : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 )
                                     .show()
-                            }else{
+                            } else {
                                 Toast.makeText(
                                     applicationContext,
                                     "User Already Exists",
