@@ -1,6 +1,6 @@
 package com.example.cake_shop.ui.View
 
-import AccountFragment
+import com.example.cake_shop.ui.View.fragments.AccountFragment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil

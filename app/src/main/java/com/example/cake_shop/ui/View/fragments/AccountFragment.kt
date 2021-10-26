@@ -1,3 +1,5 @@
+package com.example.cake_shop.ui.View.fragments
+
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
@@ -9,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.example.cake_shop.R
 import com.example.cake_shop.databinding.FragmentAccountBinding
 import com.example.cake_shop.ui.View.MainActivity
 import java.sql.*
@@ -25,24 +28,21 @@ class AccountFragment : Fragment() {
     private var connRes: String? = null
     private var connection: Connection? = null
 
-    private var email: String? = null
-    private var password: String? = null
-
     private lateinit var binding: FragmentAccountBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(
-            inflater, com.example.cake_shop.R.layout.fragment_account, container, false
+            inflater, R.layout.fragment_account, container, false
         )
         val view = binding.root
         val intent = Intent(activity, MainActivity::class.java)
 
         binding.btnEditProfilePicture.setOnClickListener {
-            val galleryIntent: Intent = Intent()
-            galleryIntent.setAction(Intent.ACTION_GET_CONTENT)
+            val galleryIntent = Intent()
+            galleryIntent.action = Intent.ACTION_GET_CONTENT
             galleryIntent.type = "image/*"
             startActivityForResult(Intent.createChooser(galleryIntent, "Pick an image"), 123)
         }
@@ -71,10 +71,8 @@ class AccountFragment : Fragment() {
             try {
                 if (connRes == "SUCCESS") {
 
-                    var statement2: Statement? = null
-                    statement2 = connection!!.createStatement()
-                    val query2: ResultSet =
-                        statement2.executeQuery("Update EmailHolder Set state = ('NULL'),email = ('NULL') where id = ('1');")
+                    val statement2: Statement = connection!!.createStatement()
+                    statement2.executeQuery("Update EmailHolder Set state = ('NULL'),email = ('NULL') where id = ('1');")
                 }
             }catch(e : Exception){
 
@@ -84,7 +82,7 @@ class AccountFragment : Fragment() {
 
         if (connRes == "SUCCESS") { //pokud se pripojeni k dbs zdarilo stane se podminka
 
-            var statement: Statement? = null
+            val statement: Statement?
 
             try {
                 statement = connection!!.createStatement()
