@@ -1,10 +1,7 @@
 package com.example.cake_shop.ui.View
 
-import AccountFragment
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.os.StrictMode
 import android.util.Log
 import android.widget.Toast
@@ -13,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityLogginBinding
 import com.example.cake_shop.ui.ViewModel.LoginViewModel
-import com.vishnusivadas.advanced_httpurlconnection.PutData
 import java.sql.*
 
 class LogginActivity : AppCompatActivity() {
@@ -22,7 +18,8 @@ class LogginActivity : AppCompatActivity() {
     private val database = "User_DB" //nazev Databaze
     private val us = "test" //prihlasovaci udaje do Sql Serveru
     private val pass = "1234"//prihlasovaci udaje do Sql Serveru
-    private val url = "jdbc:jtds:sqlserver://$ip:$port/$database" //url pres ktery se prihlasuje do dbs nemeni se!!
+    private val url =
+        "jdbc:jtds:sqlserver://$ip:$port/$database" //url pres ktery se prihlasuje do dbs nemeni se!!
     private var connRes: String? = null
     private var connection: Connection? = null
 
@@ -45,7 +42,7 @@ class LogginActivity : AppCompatActivity() {
             Intent(this, MainActivity::class.java)
         val resetPasswordIntent: Intent =
             Intent(this, ResetPasswordActivity::class.java)
-        val cakeShopIntent : Intent =
+        val cakeShopIntent: Intent =
             Intent(this, CakeShopActivity::class.java)
 
 
@@ -59,7 +56,6 @@ class LogginActivity : AppCompatActivity() {
             startActivity(resetPasswordIntent)
             finish()
         }
-
 
 
         val policy: StrictMode.ThreadPolicy =
@@ -114,7 +110,7 @@ class LogginActivity : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 )
                                     .show()
-                            }else if (result1 == "0"){
+                            } else if (result1 == "0") {
                                 query1 =
                                     statement.executeQuery("Update EmailHolder Set state = ('false') where id = ('1');")
                                 Toast.makeText(
