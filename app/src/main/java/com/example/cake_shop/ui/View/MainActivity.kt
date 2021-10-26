@@ -68,10 +68,6 @@ class MainActivity : AppCompatActivity() {
             Log.e("Error :", exception.message.toString())
         }
 
-
-
-
-
         if (connRes == "SUCCESS") { //pokud se pripojeni k dbs zdarilo stane se podminka
 
             var statement: Statement? = null
@@ -81,7 +77,7 @@ class MainActivity : AppCompatActivity() {
 
                 var query1: ResultSet =
                     statement.executeQuery("Select state from EmailHolder where id = ('1')")
-                var result1 : String? = null
+                var result1: String? = null
                 if (query1.next()) {
 
                     result1 = query1.getString(1)
@@ -89,7 +85,6 @@ class MainActivity : AppCompatActivity() {
                         startActivity(cakeShopIntent)
                     }
                 }
-
 
             } catch (e: Exception) {
                 Log.e("Error :", e.message.toString())
