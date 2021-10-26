@@ -2,8 +2,6 @@ package com.example.cake_shop.ui.View
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.os.StrictMode
 import android.util.Log
 import android.widget.Toast
@@ -11,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityResetPasswordBinding
-import com.vishnusivadas.advanced_httpurlconnection.PutData
 import java.sql.*
 
 class ResetPasswordActivity : AppCompatActivity() {
@@ -23,7 +20,6 @@ class ResetPasswordActivity : AppCompatActivity() {
     private val url = "jdbc:jtds:sqlserver://$ip:$port/$database" //url pres ktery se prihlasuje do dbs nemeni se!!
     private var connRes: String? = null
     private var connection: Connection? = null
-
 
     private var email: String? = null
     private var password: String? = null
@@ -95,7 +91,7 @@ class ResetPasswordActivity : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 )
                                     .show()
-                            }else if (result == "0"){
+                            } else if (result == "0") {
                                 Toast.makeText(
                                     applicationContext,
                                     "Incorrect email or password",
