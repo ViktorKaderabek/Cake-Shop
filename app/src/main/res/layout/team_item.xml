@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/img_photo"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_face_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="0dp"
+            android:gravity="center|left"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text=" Viktor Kaderabek"
+            android:layout_height="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_photo" />
+
+        <TextView
+            android:id="@+id/txt_positions"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:gravity="center|left|top"
+            android:text=" CEO"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_photo"
+            app:layout_constraintTop_toBottomOf="@+id/txt_name" />
+
+        <TextView
+            android:id="@+id/txt_description"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:gravity="center|left|top"
+            android:text="Viktor je šéf. Miluje svoji práci a má hlavu plnou skvělých nápadů. Je 100% perfekcionista, spokojí se jen s dokonalostí, kterou vyžaduje od nás všech. Vládne pevnou rukou, Ave On, ale zároveň je pro každou legrácku."
+            android:textColor="@color/black"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_photo"
+         />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
