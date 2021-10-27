@@ -26,9 +26,12 @@ class EmployeeActivity : AppCompatActivity() {
 
         val itemAdapter =
             ItemAdapter<EmployeeFastAdapter>()
+        val itemAdapter2 =
+            ItemAdapter<EmployeeFastAdapter>()
 
         val fastAdapter =
-            FastAdapter.with(itemAdapter) //promenna ktera v sobe uchovava udaje o tom co je v adapteru
+            FastAdapter.with(itemAdapter)
+       //promenna ktera v sobe uchovava udaje o tom co je v adapteru
 
         emplyeeActivityBinding.recyclerview.layoutManager =
             LinearLayoutManager(this)
@@ -58,7 +61,7 @@ class EmployeeActivity : AppCompatActivity() {
             EmployeeFastAdapter(
                 EmployeeTextDataClass(
                     " Team",
-                    ""
+                    "If you want to find out more about our team click at the topic Team !! "
                 )
             )
         )
