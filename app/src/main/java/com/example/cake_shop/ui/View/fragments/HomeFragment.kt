@@ -1,5 +1,6 @@
 package com.example.cake_shop.ui.View.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.example.cake_shop.R
 import com.example.cake_shop.databinding.FragmentHomeBinding
 import com.example.cake_shop.databinding.HomeItemsBinding
 import com.example.cake_shop.model.data.HomeDataClass
+import com.example.cake_shop.ui.View.EmployeeActivity
 import com.example.cake_shop.ui.adapter.HomeFastAdapter
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
@@ -20,7 +22,7 @@ import com.mikepenz.fastadapter.dsl.itemAdapter
 import com.mikepenz.fastadapter.listeners.ClickEventHook
 import com.mikepenz.fastadapter.select.getSelectExtension
 
-
+@Suppress("DEPRECATION")
 class HomeFragment : Fragment() {
 
     private lateinit var homeFragmentBinding: FragmentHomeBinding
@@ -50,7 +52,9 @@ class HomeFragment : Fragment() {
             val fastAdapter =
                 FastAdapter.with(itemAdapter) //promenna ktera v sobe uchovava udaje o tom co je v adapteru
 
-            var position: Int = 0
+            val employeeActivityIntent =
+                Intent(activity,EmployeeActivity::class.java)
+
 
             homeFragmentBinding.recyclerview.layoutManager =
                 LinearLayoutManager(activity)
@@ -98,8 +102,18 @@ class HomeFragment : Fragment() {
                 )
             )
 
+            fastAdapter.onClickListener = { view, adapter, item, position ->
 
-            
+                if (position == 0) {
+
+                } else if (position == 1) {
+
+                } else if (position == 2) {
+                    startActivityForResult(employeeActivityIntent,1)
+                }
+                false
+            }
+
         }
     }
 }

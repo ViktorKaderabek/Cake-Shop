@@ -15,6 +15,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".ui.View.EmployeeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.View.CakeShopActivity"
             android:exported="false" />
         <activity
@@ -56,10 +59,6 @@
         <activity
             android:name=".ui.View.MainActivity"
             android:exported="true" />
-
-
-
-
     </application>
 
 </manifest>
