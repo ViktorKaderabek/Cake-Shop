@@ -16,23 +16,13 @@ class HomeFastAdapter(val homeItem: HomeDataClass) :
 
     override fun bindView(binding: HomeItemsBinding, payloads: List<Any>) {
 
-        var number : Int = 0
-        number += 1
+
 
         binding.txtTopic.text = homeItem.title
         binding.txtSecondaryTopic.text = homeItem.secondaryTitle
         binding.imgMain.setImageResource(homeItem.mainImage)
         binding.imgSecondary.setImageResource(homeItem.secondaryImage)
 
-
-       /* if (number == 1) {
-            binding.background.setBackgroundColor(Color.parseColor("#a5f2a2"))
-        } else if (number == 2) {
-            binding.background.setBackgroundColor(Color.parseColor("#ed8c9f"))
-        } else if (number == 3) {
-            number = 0
-            binding.background.setBackgroundColor(Color.parseColor("#949191"))
-        }*/
     }
     override fun createBinding(inflater: LayoutInflater, parent: ViewGroup?): HomeItemsBinding {
         return HomeItemsBinding.inflate(inflater, parent, false)

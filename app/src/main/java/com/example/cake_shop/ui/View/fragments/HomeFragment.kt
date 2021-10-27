@@ -7,12 +7,18 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.FragmentHomeBinding
+import com.example.cake_shop.databinding.HomeItemsBinding
 import com.example.cake_shop.model.data.HomeDataClass
 import com.example.cake_shop.ui.adapter.HomeFastAdapter
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
+import com.mikepenz.fastadapter.dsl.genericFastAdapter
+import com.mikepenz.fastadapter.dsl.itemAdapter
+import com.mikepenz.fastadapter.listeners.ClickEventHook
+import com.mikepenz.fastadapter.select.getSelectExtension
 
 
 class HomeFragment : Fragment() {
@@ -52,6 +58,11 @@ class HomeFragment : Fragment() {
                 fastAdapter // Nastavuje recyclerview co bude obsahem
             homeFragmentBinding.recyclerview.setHasFixedSize(true)
 
+            val selectExtension = fastAdapter.getSelectExtension()
+            selectExtension.isSelectable = true
+            selectExtension.multiSelect = true
+            selectExtension.selectOnLongClick = false
+
 
 
             itemAdapter.add(
@@ -88,6 +99,7 @@ class HomeFragment : Fragment() {
             )
 
 
+            
         }
     }
 }
