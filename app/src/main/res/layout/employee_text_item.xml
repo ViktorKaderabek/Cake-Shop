@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp">
 
         <TextView
             android:id="@+id/txt_topic"
@@ -26,16 +26,14 @@
             android:id="@+id/txt_secondaryTopic"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:textSize="15sp"
             android:gravity="center|top"
             android:text="Why us? There is a simple answer to this question. With us you will find the best and most professional team with friendly relationships and a willingness to help everyone without exception. We also offer professional growth and progressively reach higher positions."
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_topic" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </layout>

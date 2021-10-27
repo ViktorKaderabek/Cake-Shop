@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:layout_marginBottom="20dp">
 
         <ImageView
             android:id="@+id/img_photo"
@@ -18,11 +18,11 @@
         <TextView
             android:id="@+id/txt_name"
             android:layout_width="0dp"
+            android:layout_height="25dp"
             android:gravity="center|left"
+            android:text=" Viktor Kaderabek"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:text=" Viktor Kaderabek"
-            android:layout_height="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/img_photo" />
 
@@ -48,10 +48,8 @@
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/img_photo"
-         />
+            app:layout_constraintStart_toEndOf="@+id/img_photo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </layout>

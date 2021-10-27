@@ -27,8 +27,6 @@ class EmployeeActivity : AppCompatActivity() {
         val itemAdapter =
             ItemAdapter<EmployeeFastAdapter>()
 
-
-
         val fastAdapter =
             FastAdapter.with(itemAdapter) //promenna ktera v sobe uchovava udaje o tom co je v adapteru
 
@@ -37,8 +35,6 @@ class EmployeeActivity : AppCompatActivity() {
         emplyeeActivityBinding.recyclerview.adapter =
             fastAdapter // Nastavuje recyclerview co bude obsahem
         emplyeeActivityBinding.recyclerview.setHasFixedSize(true)
-
-
 
         itemAdapter.add(
             EmployeeFastAdapter(
@@ -66,8 +62,6 @@ class EmployeeActivity : AppCompatActivity() {
                 )
             )
         )
-
-
 
         emplyeeActivityBinding.imbtnBack.setOnClickListener {
             setResult(0)

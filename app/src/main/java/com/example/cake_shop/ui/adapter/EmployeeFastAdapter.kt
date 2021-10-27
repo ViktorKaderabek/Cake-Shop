@@ -1,5 +1,3 @@
-
-
 package com.example.cake_shop.ui.adapter
 
 import android.view.LayoutInflater
@@ -9,7 +7,7 @@ import com.example.cake_shop.databinding.EmployeeTextItemBinding
 import com.example.cake_shop.model.data.EmployeeTextDataClass
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 
-class EmployeeFastAdapter(val employeeProfiletItem : EmployeeTextDataClass ) :
+class EmployeeFastAdapter(val employeeProfiletItem: EmployeeTextDataClass) :
     AbstractBindingItem<EmployeeTextItemBinding>() {
 
     override val type: Int
@@ -22,7 +20,10 @@ class EmployeeFastAdapter(val employeeProfiletItem : EmployeeTextDataClass ) :
 
     }
 
-    override fun createBinding(inflater: LayoutInflater, parent: ViewGroup?): EmployeeTextItemBinding {
+    override fun createBinding(
+        inflater: LayoutInflater,
+        parent: ViewGroup?
+    ): EmployeeTextItemBinding {
         return EmployeeTextItemBinding.inflate(inflater, parent, false)
     }
 
