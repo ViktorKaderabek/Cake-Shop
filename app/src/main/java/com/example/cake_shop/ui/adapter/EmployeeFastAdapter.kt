@@ -7,7 +7,7 @@ import com.example.cake_shop.databinding.EmployeeTextItemBinding
 import com.example.cake_shop.model.data.EmployeeTextDataClass
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 
-class EmployeeFastAdapter(val employeeProfiletItem: EmployeeTextDataClass) :
+class EmployeeFastAdapter(val employeeTexttItem: EmployeeTextDataClass) :
     AbstractBindingItem<EmployeeTextItemBinding>() {
 
     override val type: Int
@@ -15,8 +15,8 @@ class EmployeeFastAdapter(val employeeProfiletItem: EmployeeTextDataClass) :
 
     override fun bindView(binding: EmployeeTextItemBinding, payloads: List<Any>) {
 
-        binding.txtTopic.text = employeeProfiletItem.title
-        binding.txtSecondaryTopic.text = employeeProfiletItem.secondaryTitle
+        binding.txtTopic.text = employeeTexttItem.title
+        binding.txtSecondaryTopic.text = employeeTexttItem.secondaryTitle
 
     }
 
