@@ -75,8 +75,6 @@ class EmployeeProfilActivity : AppCompatActivity() {
             Log.e("Error :", exception.message.toString())
         }
 
-
-
         if (connRes == "SUCCESS") { //pokud se pripojeni k dbs zdarilo stane se podminka
 
             var statement: Statement? = null
