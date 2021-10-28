@@ -12,7 +12,7 @@ import com.example.cake_shop.ui.adapter.EmployeeFastAdapter
 import com.example.cake_shop.ui.adapter.HomeFastAdapter
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
-
+@Suppress("DEPRECATION")
 class EmployeeActivity : AppCompatActivity() {
 
     private lateinit var emplyeeActivityBinding: ActivityEmployeeBinding
@@ -22,12 +22,12 @@ class EmployeeActivity : AppCompatActivity() {
         emplyeeActivityBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_employee)
 
-        val cakeShopIntent =
-            Intent(this, CakeShopActivity::class.java)
+        val employeeProfileIntent =
+            Intent(this, EmployeeProfilActivity::class.java)
+
 
         val itemAdapter =
             ItemAdapter<EmployeeFastAdapter>()
-
         val fastAdapter =
             FastAdapter.with(itemAdapter)
 
@@ -66,6 +66,14 @@ class EmployeeActivity : AppCompatActivity() {
                 )
             )
         )
+
+        fastAdapter.onClickListener = { view, adapter, item, position ->
+
+            if (position == 2) {
+                startActivityForResult(employeeProfileIntent,1)
+            }
+            false
+        }
 
         emplyeeActivityBinding.imbtnBack.setOnClickListener {
             setResult(0)
