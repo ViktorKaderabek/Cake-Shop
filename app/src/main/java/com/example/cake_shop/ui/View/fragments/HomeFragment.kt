@@ -13,7 +13,9 @@ import com.example.cake_shop.R
 import com.example.cake_shop.databinding.FragmentHomeBinding
 import com.example.cake_shop.databinding.HomeItemsBinding
 import com.example.cake_shop.model.data.HomeDataClass
+import com.example.cake_shop.ui.View.AboutUsActivity
 import com.example.cake_shop.ui.View.EmployeeActivity
+import com.example.cake_shop.ui.View.ProductsActivity
 import com.example.cake_shop.ui.adapter.HomeFastAdapter
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
@@ -54,6 +56,10 @@ class HomeFragment : Fragment() {
 
             val employeeActivityIntent =
                 Intent(activity,EmployeeActivity::class.java)
+            val aboutUsIntent =
+                Intent(activity,AboutUsActivity::class.java)
+            val productsIntent =
+                Intent(activity, ProductsActivity::class.java)
 
 
             homeFragmentBinding.recyclerview.layoutManager =
@@ -105,9 +111,9 @@ class HomeFragment : Fragment() {
             fastAdapter.onClickListener = { view, adapter, item, position ->
 
                 if (position == 0) {
-
+                    startActivityForResult(aboutUsIntent,1)
                 } else if (position == 1) {
-
+                    startActivityForResult(productsIntent,1)
                 } else if (position == 2) {
                     startActivityForResult(employeeActivityIntent,1)
                 }

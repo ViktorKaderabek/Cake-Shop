@@ -15,6 +15,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".ui.View.ProductsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.View.fragments.AboutUsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.View.EmployeeActivity"
             android:exported="false" />
         <activity

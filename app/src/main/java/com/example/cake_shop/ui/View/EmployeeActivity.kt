@@ -9,6 +9,7 @@ import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityEmployeeBinding
 import com.example.cake_shop.model.data.EmployeeTextDataClass
 import com.example.cake_shop.ui.adapter.EmployeeFastAdapter
+import com.example.cake_shop.ui.adapter.HomeFastAdapter
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
 
@@ -26,11 +27,11 @@ class EmployeeActivity : AppCompatActivity() {
 
         val itemAdapter =
             ItemAdapter<EmployeeFastAdapter>()
-        val itemAdapter2 =
-            ItemAdapter<EmployeeFastAdapter>()
 
         val fastAdapter =
             FastAdapter.with(itemAdapter)
+
+
        //promenna ktera v sobe uchovava udaje o tom co je v adapteru
 
         emplyeeActivityBinding.recyclerview.layoutManager =
@@ -61,7 +62,7 @@ class EmployeeActivity : AppCompatActivity() {
             EmployeeFastAdapter(
                 EmployeeTextDataClass(
                     " Team",
-                    "If you want to find out more about our team click at the topic Team !! "
+                    "Our whole Team is mad by proffesionals, so don't worry if you wont know something our team will help you imidiatly \n if you want to check our team just click at the buttom bellow\n\n CLICK HERE !!"
                 )
             )
         )
