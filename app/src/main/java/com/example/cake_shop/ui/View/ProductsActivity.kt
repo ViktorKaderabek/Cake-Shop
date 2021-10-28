@@ -20,6 +20,7 @@ class ProductsActivity : AppCompatActivity() {
         productsActivityBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_products)
 
+
         val itemAdapter =
             ItemAdapter<ProductsFastAdapter>()
         val fastAdapter =

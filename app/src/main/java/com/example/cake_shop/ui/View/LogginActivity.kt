@@ -34,9 +34,9 @@ class LogginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         logginBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_loggin)
+
 
         val mainActivityIntent: Intent =
             Intent(this, MainActivity::class.java)
@@ -44,7 +44,6 @@ class LogginActivity : AppCompatActivity() {
             Intent(this, ResetPasswordActivity::class.java)
         val cakeShopIntent: Intent =
             Intent(this, CakeShopActivity::class.java)
-
 
 
         logginBinding.imbtnBack.setOnClickListener {
@@ -56,7 +55,6 @@ class LogginActivity : AppCompatActivity() {
             startActivity(resetPasswordIntent)
             finish()
         }
-
 
         val policy: StrictMode.ThreadPolicy =
             StrictMode.ThreadPolicy.Builder().permitAll().build()

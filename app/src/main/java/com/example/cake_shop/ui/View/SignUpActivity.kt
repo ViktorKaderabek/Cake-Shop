@@ -18,7 +18,8 @@ class SignUpActivity : AppCompatActivity() {
     private val database = "User_DB" //nazev Databaze
     private val us = "test" //prihlasovaci udaje do Sql Serveru
     private val pass = "1234"//prihlasovaci udaje do Sql Serveru
-    private val url = "jdbc:jtds:sqlserver://$ip:$port/$database" //url pres ktery se prihlasuje do dbs nemeni se!!
+    private val url =
+        "jdbc:jtds:sqlserver://$ip:$port/$database" //url pres ktery se prihlasuje do dbs nemeni se!!
     private var connRes: String? = null
     private var connection: Connection? = null
 
@@ -34,6 +35,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding =
             DataBindingUtil.setContentView(this, R.layout.activity_signup)
+
 
         val mainActivityIntent: Intent =
             Intent(this, MainActivity::class.java)

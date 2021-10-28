@@ -31,6 +31,7 @@ class ResetPasswordActivity : AppCompatActivity() {
         binding =
             DataBindingUtil.setContentView(this, R.layout.activity_reset_password)
 
+
         val loginIntent: Intent =
             Intent(this, LogginActivity::class.java)
 

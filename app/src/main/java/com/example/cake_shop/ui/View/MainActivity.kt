@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     private var connRes: String? = null
     private var connection: Connection? = null
 
-
     private var email: String? = null
     private var password: String? = null
 
@@ -30,9 +29,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
+
 
         val loginIntent: Intent =
             Intent(this, LogginActivity::class.java)
