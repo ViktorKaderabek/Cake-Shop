@@ -1,4 +1,4 @@
-package com.example.cake_shop.model
+package com.example.cake_shop.model.data.dbConnection
 
 import android.annotation.SuppressLint
 import android.os.StrictMode
