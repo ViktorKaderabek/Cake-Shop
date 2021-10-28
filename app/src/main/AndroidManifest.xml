@@ -15,6 +15,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".ui.View.DesertsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.View.IceCreamActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.View.CakesActivity"
             android:exported="false" />
         <activity

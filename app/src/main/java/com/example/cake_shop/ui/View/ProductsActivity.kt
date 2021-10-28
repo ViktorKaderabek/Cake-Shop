@@ -11,6 +11,7 @@ import com.example.cake_shop.model.data.ProductsDataClass
 import com.example.cake_shop.ui.adapter.ProductsFastAdapter
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
+
 @Suppress("DEPRECATION")
 class ProductsActivity : AppCompatActivity() {
 
@@ -24,6 +25,10 @@ class ProductsActivity : AppCompatActivity() {
 
         val cakesIntent =
             Intent(this, CakesActivity::class.java)
+        val iceCreamIntent =
+            Intent(this, IceCreamActivity::class.java)
+        val dessertsIntent =
+            Intent(this, DesertsActivity::class.java)
 
         val itemAdapter =
             ItemAdapter<ProductsFastAdapter>()
@@ -66,11 +71,11 @@ class ProductsActivity : AppCompatActivity() {
         fastAdapter.onClickListener = { view, adapter, item, position ->
 
             if (position == 0) {
-                startActivityForResult(cakesIntent,1)
-            }else if(position == 1){
-               // startActivityForResult(employeeProfileIntent,1)
-            }else if(position == 2){
-                //startActivityForResult(employeeProfileIntent,1)
+                startActivityForResult(cakesIntent, 1)
+            } else if (position == 1) {
+                startActivityForResult(iceCreamIntent, 1)
+            } else if (position == 2) {
+                startActivityForResult(dessertsIntent, 1)
             }
             false
         }
