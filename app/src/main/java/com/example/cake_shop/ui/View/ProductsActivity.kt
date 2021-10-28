@@ -1,5 +1,6 @@
 package com.example.cake_shop.ui.View
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -10,7 +11,7 @@ import com.example.cake_shop.model.data.ProductsDataClass
 import com.example.cake_shop.ui.adapter.ProductsFastAdapter
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
-
+@Suppress("DEPRECATION")
 class ProductsActivity : AppCompatActivity() {
 
     private lateinit var productsActivityBinding: ActivityProductsBinding
@@ -20,6 +21,9 @@ class ProductsActivity : AppCompatActivity() {
         productsActivityBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_products)
 
+
+        val cakesIntent =
+            Intent(this, CakesActivity::class.java)
 
         val itemAdapter =
             ItemAdapter<ProductsFastAdapter>()
@@ -58,5 +62,17 @@ class ProductsActivity : AppCompatActivity() {
                 )
             )
         )
+
+        fastAdapter.onClickListener = { view, adapter, item, position ->
+
+            if (position == 0) {
+                startActivityForResult(cakesIntent,1)
+            }else if(position == 1){
+               // startActivityForResult(employeeProfileIntent,1)
+            }else if(position == 2){
+                //startActivityForResult(employeeProfileIntent,1)
+            }
+            false
+        }
     }
 }

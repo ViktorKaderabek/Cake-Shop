@@ -15,6 +15,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".ui.View.CakesActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.View.EmployeeProfilActivity"
             android:exported="false" />
         <activity
