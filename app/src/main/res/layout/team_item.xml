@@ -11,6 +11,7 @@
             android:id="@+id/img_photo"
             android:layout_width="100dp"
             android:layout_height="match_parent"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_baseline_face_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -111,8 +111,6 @@ class AccountFragment : Fragment() {
             }
         }
 
-
-
         return view
     }
 

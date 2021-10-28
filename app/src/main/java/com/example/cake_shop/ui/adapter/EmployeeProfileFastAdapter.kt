@@ -18,7 +18,7 @@ class EmployeeProfileFastAdapter(val employeeProfiletItem: EmployeeProfileDataCl
         binding.txtName.text = employeeProfiletItem.name
         binding.txtPositions.text = employeeProfiletItem.position
         binding.txtDescription.text = employeeProfiletItem.description
-        binding.imgPhoto.setImageResource(employeeProfiletItem.picture)
+        binding.imgPhoto.setImageBitmap(employeeProfiletItem.picture)
     }
 
     override fun createBinding(

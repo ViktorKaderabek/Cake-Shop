@@ -1,6 +1,7 @@
 package com.example.cake_shop.ui.View
 
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.StrictMode
 import android.util.Log
@@ -15,6 +16,7 @@ import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
 import java.sql.*
 
+
 class EmployeeProfilActivity : AppCompatActivity() {
 
     private val ip = "192.168.0.242" //ip addressa na ktere bezi server
@@ -28,6 +30,8 @@ class EmployeeProfilActivity : AppCompatActivity() {
     private var connection: Connection? = null
 
     private var count: Int = 1
+    var bitmapImageDB : Bitmap? = null
+    private var photo: ByteArray? = null
     private var idCount: Int = 0
     private var name: String? = null
     private var position: String? = null
@@ -99,6 +103,17 @@ class EmployeeProfilActivity : AppCompatActivity() {
                                     statement.executeQuery("select description from EmployeeInfo where id = ('$idCount')")
                                 if (query1.next()) {
                                     description = query1.getString(1)
+                                    query1 =
+                                        statement.executeQuery("select photoImage from EmployeeInfo where id = ('$idCount')")
+                                    if (query1.next()) {
+                                        photo = query1.getBytes(1)
+                                        bitmapImageDB = BitmapFactory.decodeByteArray(
+                                            photo,
+                                            0,
+                                            photo!!.size
+                                        )
+
+                                    }
                                 }
                             }
                         }
@@ -109,7 +124,7 @@ class EmployeeProfilActivity : AppCompatActivity() {
                                     name.toString(),
                                     position.toString(),
                                     description.toString(),
-                                    R.drawable.ic_baseline_face_24
+                                    bitmapImageDB!!
                                 )
                             )
                         )
