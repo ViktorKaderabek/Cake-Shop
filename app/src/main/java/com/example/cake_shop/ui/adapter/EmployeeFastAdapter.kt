@@ -17,7 +17,6 @@ class EmployeeFastAdapter(val employeeTexttItem: EmployeeTextDataClass) :
 
         binding.txtTopic.text = employeeTexttItem.title
         binding.txtSecondaryTopic.text = employeeTexttItem.secondaryTitle
-
     }
 
     override fun createBinding(

@@ -20,6 +20,7 @@ class AboutUsActivity : AppCompatActivity() {
         aboutUsBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_about_us)
 
+
         aboutUsBinding.imbtnBack.setOnClickListener {
             setResult(0)
             finish()
@@ -29,9 +30,6 @@ class AboutUsActivity : AppCompatActivity() {
             ItemAdapter<AboutUsFastAdapter>()
         val fastAdapter =
             FastAdapter.with(itemAdapter)
-
-
-        //promenna ktera v sobe uchovava udaje o tom co je v adapteru
 
         aboutUsBinding.recyclerview.layoutManager =
             LinearLayoutManager(this)

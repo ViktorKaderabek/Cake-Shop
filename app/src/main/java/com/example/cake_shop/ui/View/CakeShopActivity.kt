@@ -1,12 +1,12 @@
 package com.example.cake_shop.ui.View
 
-import com.example.cake_shop.ui.View.fragments.AccountFragment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityCakeShopBinding
 import com.example.cake_shop.ui.View.fragments.AboutUsFramgen
+import com.example.cake_shop.ui.View.fragments.AccountFragment
 import com.example.cake_shop.ui.View.fragments.ContactsFragment
 import com.example.cake_shop.ui.View.fragments.HomeFragment
 
@@ -19,7 +19,6 @@ class CakeShopActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         cakeShopActivityBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_cake_shop)
-
 
 
         supportFragmentManager.beginTransaction()
