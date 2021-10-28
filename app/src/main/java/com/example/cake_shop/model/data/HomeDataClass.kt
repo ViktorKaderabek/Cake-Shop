@@ -7,7 +7,5 @@ data class HomeDataClass(
     val secondaryTitle: String,
     val mainImage: Int,
     val secondaryImage : Int
-
-
 ) {
 }

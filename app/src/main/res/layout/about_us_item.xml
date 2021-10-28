@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/txt_topic"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:gravity="center|top"
+            android:maxLines="1"
+            android:text="Who are we ?"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:text="We are a society that welcomes new and talented people, people who are not afraid to embrace a moment of their free time to learn new things, just like us. I'm a prestigious candy factory. We have won many competitions in baking and cake decorating.
+We certainly have something to offer to our future employees and especially to our customers, whom we welcome with open arms!"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_topic"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:id="@+id/img_photo"
+            android:layout_width="300dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cukrarna"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
