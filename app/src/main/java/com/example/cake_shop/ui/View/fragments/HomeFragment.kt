@@ -8,10 +8,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.FragmentHomeBinding
-import com.example.cake_shop.databinding.HomeItemsBinding
 import com.example.cake_shop.model.data.HomeDataClass
 import com.example.cake_shop.ui.View.AboutUsActivity
 import com.example.cake_shop.ui.View.EmployeeActivity
@@ -19,9 +17,6 @@ import com.example.cake_shop.ui.View.ProductsActivity
 import com.example.cake_shop.ui.adapter.HomeFastAdapter
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
-import com.mikepenz.fastadapter.dsl.genericFastAdapter
-import com.mikepenz.fastadapter.dsl.itemAdapter
-import com.mikepenz.fastadapter.listeners.ClickEventHook
 import com.mikepenz.fastadapter.select.getSelectExtension
 
 @Suppress("DEPRECATION")
@@ -55,9 +50,9 @@ class HomeFragment : Fragment() {
                 FastAdapter.with(itemAdapter) //promenna ktera v sobe uchovava udaje o tom co je v adapteru
 
             val employeeActivityIntent =
-                Intent(activity,EmployeeActivity::class.java)
+                Intent(activity, EmployeeActivity::class.java)
             val aboutUsIntent =
-                Intent(activity,AboutUsActivity::class.java)
+                Intent(activity, AboutUsActivity::class.java)
             val productsIntent =
                 Intent(activity, ProductsActivity::class.java)
 
@@ -111,11 +106,11 @@ class HomeFragment : Fragment() {
             fastAdapter.onClickListener = { view, adapter, item, position ->
 
                 if (position == 0) {
-                    startActivityForResult(aboutUsIntent,1)
+                    startActivityForResult(aboutUsIntent, 1)
                 } else if (position == 1) {
-                    startActivityForResult(productsIntent,1)
+                    startActivityForResult(productsIntent, 1)
                 } else if (position == 2) {
-                    startActivityForResult(employeeActivityIntent,1)
+                    startActivityForResult(employeeActivityIntent, 1)
                 }
                 false
             }
