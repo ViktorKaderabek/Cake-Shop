@@ -19,7 +19,7 @@ class EmployeeProfilActivity : AppCompatActivity() {
 
     private val ip = "192.168.0.242" //ip addressa na ktere bezi server
     private val port = "1300" // cislo portu
-    private val database = "EmployeeDB" //nazev Databaze
+    private val database = "CakeShopDB" //nazev Databaze
     private val us = "test" //prihlasovaci udaje do Sql Serveru
     private val pass = "1234"//prihlasovaci udaje do Sql Serveru
     private val url =
@@ -27,7 +27,6 @@ class EmployeeProfilActivity : AppCompatActivity() {
     private var connRes: String? = null
     private var connection: Connection? = null
 
-    private var bitmapImage: Bitmap? = null
     private var count: Int = 1
     private var idCount: Int = 0
     private var name: String? = null
@@ -100,8 +99,6 @@ class EmployeeProfilActivity : AppCompatActivity() {
                                     statement.executeQuery("select description from EmployeeInfo where id = ('$idCount')")
                                 if (query1.next()) {
                                     description = query1.getString(1)
-                                    query1 =
-                                        statement.executeQuery("select employeePhoto from EmployeeInfo where id = ('$idCount')")
                                 }
                             }
                         }

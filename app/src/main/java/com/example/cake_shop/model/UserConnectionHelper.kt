@@ -17,7 +17,7 @@ class UserConnectionHelper {
         var con: Connection? = null
         val ip: String = "192.168.0.242"
         val port: String = "1300"
-        val db: String = "UserDB"
+        val db: String = "CakeShopDB"
         val username: String = "test"
         val pass: String = "1234"
         val a: StrictMode.ThreadPolicy =

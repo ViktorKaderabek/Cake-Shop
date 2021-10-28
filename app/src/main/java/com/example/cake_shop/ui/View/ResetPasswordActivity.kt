@@ -14,7 +14,7 @@ import java.sql.*
 class ResetPasswordActivity : AppCompatActivity() {
     private val ip = "192.168.0.242" //ip addressa na ktere bezi server
     private val port = "1300" // cislo portu
-    private val database = "User_DB" //nazev Databaze
+    private val database = "CakeShopDB" //nazev Databaze
     private val us = "test" //prihlasovaci udaje do Sql Serveru
     private val pass = "1234"//prihlasovaci udaje do Sql Serveru
     private val url = "jdbc:jtds:sqlserver://$ip:$port/$database" //url pres ktery se prihlasuje do dbs nemeni se!!

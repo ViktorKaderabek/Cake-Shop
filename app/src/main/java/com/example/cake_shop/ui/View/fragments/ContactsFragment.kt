@@ -24,7 +24,7 @@ class ContactsFragment : Fragment() {
 
     private val ip = "192.168.0.242" //ip addressa na ktere bezi server
     private val port = "1300" // cislo portu
-    private val database = "User_DB" //nazev Databaze
+    private val database = "CakeShopDB" //nazev Databaze
     private val us = "test" //prihlasovaci udaje do Sql Serveru
     private val pass = "1234"//prihlasovaci udaje do Sql Serveru
     private val url =
