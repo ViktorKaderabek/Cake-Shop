@@ -1,7 +1,6 @@
 package com.example.cake_shop.ui.View
 
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.StrictMode
 import android.util.Log
@@ -28,7 +27,7 @@ class EmployeeProfilActivity : AppCompatActivity() {
     private var connRes: String? = null
     private var connection: Connection? = null
 
-    private var bitmapImage:Bitmap? = null
+    private var bitmapImage: Bitmap? = null
     private var count: Int = 1
     private var idCount: Int = 0
     private var name: String? = null
