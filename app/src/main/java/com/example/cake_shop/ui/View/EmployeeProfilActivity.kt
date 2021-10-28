@@ -1,5 +1,7 @@
 package com.example.cake_shop.ui.View
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.StrictMode
 import android.util.Log
@@ -26,6 +28,7 @@ class EmployeeProfilActivity : AppCompatActivity() {
     private var connRes: String? = null
     private var connection: Connection? = null
 
+    private var bitmapImage:Bitmap? = null
     private var count: Int = 1
     private var idCount: Int = 0
     private var name: String? = null
@@ -98,6 +101,8 @@ class EmployeeProfilActivity : AppCompatActivity() {
                                     statement.executeQuery("select description from EmployeeInfo where id = ('$idCount')")
                                 if (query1.next()) {
                                     description = query1.getString(1)
+                                    query1 =
+                                        statement.executeQuery("select employeePhoto from EmployeeInfo where id = ('$idCount')")
                                 }
                             }
                         }
