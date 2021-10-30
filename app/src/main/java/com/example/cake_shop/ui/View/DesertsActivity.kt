@@ -68,7 +68,7 @@ class DesertsActivity : AppCompatActivity() {
 
         StrictMode.setThreadPolicy(policy)
 
-        try {//zkousi se pripojit do me dbs
+        try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver")//nemeni se
             connection = DriverManager.getConnection(url, us, pass)//zadava url a prihlasovaci udaje
             connRes = "SUCCESS" // nastavuje vysledek jako uspescny
