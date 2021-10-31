@@ -41,11 +41,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
         homeFragmentBinding.recyclerview.apply {
-            // set a LinearLayoutManager to handle Android
-            // RecyclerView behavior
+
             val itemAdapter =
                 ItemAdapter<HomeFastAdapter>()
-
             val fastAdapter =
                 FastAdapter.with(itemAdapter) //promenna ktera v sobe uchovava udaje o tom co je v adapteru
 
@@ -55,7 +53,6 @@ class HomeFragment : Fragment() {
                 Intent(activity, AboutUsActivity::class.java)
             val productsIntent =
                 Intent(activity, ProductsActivity::class.java)
-
 
             homeFragmentBinding.recyclerview.layoutManager =
                 LinearLayoutManager(activity)
@@ -67,8 +64,6 @@ class HomeFragment : Fragment() {
             selectExtension.isSelectable = true
             selectExtension.multiSelect = true
             selectExtension.selectOnLongClick = false
-
-
 
             itemAdapter.add(
                 HomeFastAdapter(

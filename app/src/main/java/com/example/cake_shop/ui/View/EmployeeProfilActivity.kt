@@ -21,8 +21,7 @@ class EmployeeProfilActivity : AppCompatActivity() {
 
     private lateinit var employeeProfileActivityBinding: ActivityEmployeeProfilBinding
     private lateinit var employeeProfileViewModel: EmployeeProfileViewModel
-    private val connectionHelper = ConnectionHelper()
-    private val connect = connectionHelper.getConnection()
+    private val connect = ConnectionHelper().getConnection()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

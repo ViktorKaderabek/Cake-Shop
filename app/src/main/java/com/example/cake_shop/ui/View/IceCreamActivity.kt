@@ -20,8 +20,7 @@ class IceCreamActivity : AppCompatActivity() {
 
     private lateinit var iceCreamActivityBinding: ActivityIceCreamBinding
     private lateinit var iceCreamViewModel: IceCreamViewModel
-    private val connectionHelper = ConnectionHelper()
-    private val connect = connectionHelper.getConnection()
+    private val connect = ConnectionHelper().getConnection()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

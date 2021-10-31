@@ -18,8 +18,7 @@ class LogginActivity : AppCompatActivity() {
 
     private lateinit var logginViewModel: LoginViewModel //Vytvarim promennou, ktera odkazuje na ViewModel pro tuto tridu
     private lateinit var logginBinding: ActivityLogginBinding
-    private val connectionHelper = ConnectionHelper()
-    private val connect = connectionHelper.getConnection()
+    private val connect = ConnectionHelper().getConnection()
     //Vytvarim promennou, ktera odkazuje na fragment com.example.cake_shop.ui.View.fragments.AccountFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
