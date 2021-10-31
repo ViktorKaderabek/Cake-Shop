@@ -18,8 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var activityMainViewModel: MainViewModel
-    private val connectionHelper = ConnectionHelper()
-    private val connect = connectionHelper.getConnection()
+    private val connect = ConnectionHelper().getConnection()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

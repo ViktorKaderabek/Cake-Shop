@@ -18,8 +18,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private lateinit var signUpViwModel: SignUpViewModel
     private lateinit var binding: ActivitySignupBinding
-    private val connectionHelper = ConnectionHelper()
-    private val connect = connectionHelper.getConnection()
+    private val connect = ConnectionHelper().getConnection()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

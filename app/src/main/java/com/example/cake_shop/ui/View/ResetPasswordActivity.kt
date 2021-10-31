@@ -18,8 +18,7 @@ class ResetPasswordActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityResetPasswordBinding
     private lateinit var resetPasswordViewModel: ResetPasswordViewModel
-    private val connectionHelper = ConnectionHelper()
-    private val connect = connectionHelper.getConnection()
+    private val connect = ConnectionHelper().getConnection()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
