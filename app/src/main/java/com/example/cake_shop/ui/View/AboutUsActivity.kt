@@ -3,41 +3,41 @@ package com.example.cake_shop.ui.View
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityAboutUsBinding
 import com.example.cake_shop.model.data.AboutUsDataClass
+import com.example.cake_shop.ui.ViewModel.AboutUsViewModel
 import com.example.cake_shop.ui.adapter.AboutUsFastAdapter
-import com.mikepenz.fastadapter.FastAdapter
-import com.mikepenz.fastadapter.adapters.ItemAdapter
 
 class AboutUsActivity : AppCompatActivity() {
 
-    private lateinit var aboutUsBinding: ActivityAboutUsBinding
+    private lateinit var aboutUsViewModel: AboutUsViewModel
+    private lateinit var aboutUsBinding: ActivityAboutUsBinding //binding na layout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         aboutUsBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_about_us)
 
+        aboutUsViewModel = ViewModelProvider(
+            this,
+            defaultViewModelProviderFactory
+        ).get(AboutUsViewModel::class.java)
 
-        aboutUsBinding.imbtnBack.setOnClickListener {
+        aboutUsBinding.imbtnBack.setOnClickListener {//button ktery nastavuje result 0 na activitu ktera otevrela tuhle aktivitu
             setResult(0)
             finish()
         }
 
-        val itemAdapter =
-            ItemAdapter<AboutUsFastAdapter>()
-        val fastAdapter =
-            FastAdapter.with(itemAdapter)
-
         aboutUsBinding.recyclerview.layoutManager =
             LinearLayoutManager(this)
         aboutUsBinding.recyclerview.adapter =
-            fastAdapter // Nastavuje recyclerview co bude obsahem
+            aboutUsViewModel.fastAdapter // Nastavuje recyclerview co bude obsahem
         aboutUsBinding.recyclerview.setHasFixedSize(true)
 
-        itemAdapter.add(
+        aboutUsViewModel.itemAdapter.add( //prida do itemAdapteru Objekt
             AboutUsFastAdapter(
                 AboutUsDataClass(
                     "Who are we ?",
@@ -47,7 +47,7 @@ class AboutUsActivity : AppCompatActivity() {
             )
         )
 
-        itemAdapter.add(
+        aboutUsViewModel.itemAdapter.add(
             AboutUsFastAdapter(
                 AboutUsDataClass(
                     "History !",
