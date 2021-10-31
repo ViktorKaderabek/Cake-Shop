@@ -2,35 +2,34 @@ package com.example.cake_shop.ui.View
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.StrictMode
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityResetPasswordBinding
-import java.sql.*
+import com.example.cake_shop.model.data.dbConnection.ConnectionHelper
+import com.example.cake_shop.ui.ViewModel.ResetPasswordViewModel
+import java.sql.ResultSet
+import java.sql.SQLException
+import java.sql.Statement
 
 class ResetPasswordActivity : AppCompatActivity() {
-    private val ip = "192.168.0.242" //ip addressa na ktere bezi server
-    private val port = "1300" // cislo portu
-    private val database = "CakeShopDB" //nazev Databaze
-    private val us = "test" //prihlasovaci udaje do Sql Serveru
-    private val pass = "1234"//prihlasovaci udaje do Sql Serveru
-    private val url = "jdbc:jtds:sqlserver://$ip:$port/$database" //url pres ktery se prihlasuje do dbs nemeni se!!
-    private var connRes: String? = null
-    private var connection: Connection? = null
-
-    private var email: String? = null
-    private var password: String? = null
 
     private lateinit var binding: ActivityResetPasswordBinding
+    private lateinit var resetPasswordViewModel: ResetPasswordViewModel
+    private val connectionHelper = ConnectionHelper()
+    private val connect = connectionHelper.getConnection()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =
             DataBindingUtil.setContentView(this, R.layout.activity_reset_password)
 
+        resetPasswordViewModel = ViewModelProvider(
+            this,
+            defaultViewModelProviderFactory
+        ).get(ResetPasswordViewModel::class.java)
 
         val loginIntent: Intent =
             Intent(this, LogginActivity::class.java)
@@ -40,43 +39,24 @@ class ResetPasswordActivity : AppCompatActivity() {
             finish()
         }
 
-        val policy: StrictMode.ThreadPolicy =
-            StrictMode.ThreadPolicy.Builder().permitAll().build()
-
-        StrictMode.setThreadPolicy(policy)
-
-        try {//zkousi se pripojit do me dbs
-            Class.forName("net.sourceforge.jtds.jdbc.Driver")//nemeni se
-            connection = DriverManager.getConnection(url, us, pass)//zadava url a prihlasovaci udaje
-            connRes = "SUCCESS" // nastavuje vysledek jako uspescny
-        } catch (exception: ClassNotFoundException) {
-            exception.printStackTrace()
-            connRes = "ERROR"// nastavuje vysledek jako neuspesny
-            Log.e("Error :", exception.message.toString())
-        } catch (exception: SQLException) {
-            exception.printStackTrace()
-            connRes = "FAILURE"
-            Log.e("Error :", exception.message.toString())
-        }
-
         binding.btnResetPwd.setOnClickListener {
 
             if (binding.edtxEmail.text.isNotEmpty() &&//pokud jsou vsechna pole zaplnena tak se provede podminka
                 binding.edtxPassword.text.isNotEmpty()
 
             ) {
-                if (connRes == "SUCCESS") { //pokud se pripojeni k dbs zdarilo stane se podminka
+                if (connect != null) { //pokud se pripojeni k dbs zdarilo stane se podminka
 
-                    email = binding.edtxEmail.text.toString()
-                    password = binding.edtxPassword.text.toString()
+                    resetPasswordViewModel.email = binding.edtxEmail.text.toString()
+                    resetPasswordViewModel.password = binding.edtxPassword.text.toString()
 
                     var statement: Statement? = null
                     try {
 
-                        statement = connection!!.createStatement()
+                        statement = connect!!.createStatement()
 
                         var resultSet: ResultSet =
-                            statement.executeQuery("SELECT COUNT(1) as NumberOfRows FROM Users where email = ('$email');")//secte kolik je shod s danou email.adress
+                            statement.executeQuery("SELECT COUNT(1) as NumberOfRows FROM Users where email = ('${resetPasswordViewModel.email}');")//secte kolik je shod s danou email.adress
                         var result: String = ""
 
                         if (resultSet.next()) {
@@ -85,7 +65,7 @@ class ResetPasswordActivity : AppCompatActivity() {
                             if (result == "1") {
                                 startActivity(loginIntent)
                                 resultSet =
-                                    statement.executeQuery("Update Users Set password = ('$password') where email = ('$email');")
+                                    statement.executeQuery("Update Users Set password = ('${resetPasswordViewModel.password}') where email = ('${resetPasswordViewModel.email}');")
                                 Toast.makeText(
                                     applicationContext,
                                     "Password change successfuly",

@@ -1,10 +1,10 @@
 package com.example.cake_shop.ui.View.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.cake_shop.R
 
 class AboutUsFramgen : Fragment() {

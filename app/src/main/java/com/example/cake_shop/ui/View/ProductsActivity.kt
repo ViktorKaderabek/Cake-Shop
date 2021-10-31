@@ -4,24 +4,29 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityProductsBinding
 import com.example.cake_shop.model.data.ProductsDataClass
+import com.example.cake_shop.ui.ViewModel.ProductsViewModel
 import com.example.cake_shop.ui.adapter.ProductsFastAdapter
-import com.mikepenz.fastadapter.FastAdapter
-import com.mikepenz.fastadapter.adapters.ItemAdapter
 
 @Suppress("DEPRECATION")
 class ProductsActivity : AppCompatActivity() {
 
     private lateinit var productsActivityBinding: ActivityProductsBinding
+    private lateinit var productViewModel: ProductsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         productsActivityBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_products)
 
+        productViewModel = ViewModelProvider(
+            this,
+            defaultViewModelProviderFactory
+        ).get(ProductsViewModel::class.java)
 
         val cakesIntent =
             Intent(this, CakesActivity::class.java)
@@ -30,15 +35,10 @@ class ProductsActivity : AppCompatActivity() {
         val dessertsIntent =
             Intent(this, DesertsActivity::class.java)
 
-        val itemAdapter =
-            ItemAdapter<ProductsFastAdapter>()
-        val fastAdapter =
-            FastAdapter.with(itemAdapter)
-
         productsActivityBinding.recyclerview.layoutManager =
             LinearLayoutManager(this)
         productsActivityBinding.recyclerview.adapter =
-            fastAdapter // Nastavuje recyclerview co bude obsahem
+            productViewModel.fastAdapter // Nastavuje recyclerview co bude obsahem
         productsActivityBinding.recyclerview.setHasFixedSize(true)
 
         productsActivityBinding.imbtnBack.setOnClickListener {
@@ -46,21 +46,21 @@ class ProductsActivity : AppCompatActivity() {
             finish()
         }
 
-        itemAdapter.add(
+        productViewModel.itemAdapter.add(
             ProductsFastAdapter(
                 ProductsDataClass(
                     "CAKES", R.drawable.cake
                 )
             )
         )
-        itemAdapter.add(
+        productViewModel.itemAdapter.add(
             ProductsFastAdapter(
                 ProductsDataClass(
                     "ICE CREAMES", R.drawable.ice_creame
                 )
             )
         )
-        itemAdapter.add(
+        productViewModel.itemAdapter.add(
             ProductsFastAdapter(
                 ProductsDataClass(
                     "DESSERTS", R.drawable.desert
@@ -68,7 +68,7 @@ class ProductsActivity : AppCompatActivity() {
             )
         )
 
-        fastAdapter.onClickListener = { view, adapter, item, position ->
+        productViewModel.fastAdapter.onClickListener = { view, adapter, item, position ->
 
             if (position == 0) {
                 startActivityForResult(cakesIntent, 1)

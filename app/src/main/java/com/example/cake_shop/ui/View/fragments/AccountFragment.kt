@@ -74,7 +74,7 @@ class AccountFragment : Fragment() {
                     val statement2: Statement = connection!!.createStatement()
                     statement2.executeQuery("Update EmailHolder Set state = ('NULL'),email = ('NULL') where id = ('1');")
                 }
-            }catch(e : Exception){
+            } catch (e: Exception) {
 
                 Log.e("Error :", e.message.toString())
             }
