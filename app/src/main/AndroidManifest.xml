@@ -15,6 +15,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".ui.View.ConnectionLostActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.View.DesertsActivity"
             android:exported="false" />
         <activity
