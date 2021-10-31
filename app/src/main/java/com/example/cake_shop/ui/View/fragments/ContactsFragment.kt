@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.FragmentContactsBinding
 import com.example.cake_shop.model.data.dbConnection.ConnectionHelper
+import com.example.cake_shop.ui.ViewModel.ContactsFragmentViewModel
 import java.sql.SQLException
 import java.sql.Statement
 import android.view.View as View1
@@ -19,10 +21,7 @@ import android.view.View as View1
 @Suppress("DEPRECATION")
 class ContactsFragment : Fragment() {
 
-    private var email: String? = null
-    private var address: String? = null
-    private var phone: String? = null
-
+    private lateinit var contactsFragmentViewModel: ContactsFragmentViewModel
     private lateinit var contactsFragmentBinding: FragmentContactsBinding
     private val connect = ConnectionHelper().getConnection()
 
@@ -36,6 +35,11 @@ class ContactsFragment : Fragment() {
         )
         val view: View1 = contactsFragmentBinding.root
 
+        contactsFragmentViewModel = ViewModelProvider(
+            this,
+            defaultViewModelProviderFactory
+        ).get(ContactsFragmentViewModel::class.java)
+
         if (connect != null) { //pokud se pripojeni k dbs zdarilo stane se podminka
 
             val statement: Statement?
@@ -46,18 +50,18 @@ class ContactsFragment : Fragment() {
                     statement.executeQuery("Select email from cakeShopContacts where id = ('1') ")
                 if (query1.next()) {
 
-                    email = query1.getString(1)
+                    contactsFragmentViewModel.email = query1.getString(1)
                     query1 =
                         statement.executeQuery("Select locAddress from cakeShopContacts where id = ('1') ")
 
                     if (query1.next()) {
 
-                        address = query1.getString(1)
+                        contactsFragmentViewModel.address = query1.getString(1)
                         query1 =
                             statement.executeQuery("Select phoneNumber from cakeShopContacts where id = ('1') ")
 
                         if (query1.next()) {
-                            phone = query1.getString(1)
+                            contactsFragmentViewModel.phone = query1.getString(1)
                         }
                     }
                 }
@@ -66,13 +70,16 @@ class ContactsFragment : Fragment() {
             }
         }
 
-        contactsFragmentBinding.txtMailAddresse.text = email
-        contactsFragmentBinding.txtAddresse.text = address
-        contactsFragmentBinding.txtPhoneNumber.text = phone
+        contactsFragmentBinding.txtMailAddresse.text = contactsFragmentViewModel.email
+        contactsFragmentBinding.txtAddresse.text = contactsFragmentViewModel.address
+        contactsFragmentBinding.txtPhoneNumber.text = contactsFragmentViewModel.phone
 
         contactsFragmentBinding.txtMailAddresse.setOnClickListener {
             val emailIntent =
-                Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", email, null))
+                Intent(
+                    Intent.ACTION_SENDTO,
+                    Uri.fromParts("mailto", contactsFragmentViewModel.email, null)
+                )
             startActivity(Intent.createChooser(emailIntent, "Send email..."))
         }
 
@@ -88,10 +95,10 @@ class ContactsFragment : Fragment() {
         contactsFragmentBinding.txtPhoneNumber.setOnClickListener {
             val contactsIntent =
                 Intent(Intent.ACTION_INSERT, ContactsContract.Contacts.CONTENT_URI)
-            contactsIntent.putExtra("phone", phone)
+            contactsIntent.putExtra("phone", contactsFragmentViewModel.phone)
             contactsIntent.putExtra("name", "CakeShop.cz")
-            contactsIntent.putExtra("email", email)
-            contactsIntent.putExtra("address", address)
+            contactsIntent.putExtra("email", contactsFragmentViewModel.email)
+            contactsIntent.putExtra("address", contactsFragmentViewModel.address)
 
             startActivity(contactsIntent)
 
