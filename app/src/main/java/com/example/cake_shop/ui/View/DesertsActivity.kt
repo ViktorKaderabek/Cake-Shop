@@ -20,8 +20,7 @@ class DesertsActivity : AppCompatActivity() {
 
     private lateinit var dessertsViewModel: DesertsViewModel
     private lateinit var dessertsActivityBinding: ActivityDesertsBinding
-    private val connectionHelper: ConnectionHelper = ConnectionHelper()
-    private val connect = connectionHelper.getConnection()
+    private val connect = ConnectionHelper().getConnection()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

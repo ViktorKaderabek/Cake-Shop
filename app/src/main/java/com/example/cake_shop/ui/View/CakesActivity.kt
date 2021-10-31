@@ -22,8 +22,7 @@ class CakesActivity : AppCompatActivity() {
 
     private lateinit var cakeViewModel: CakesActivityViewModel
     private lateinit var cakesActivityBinding: ActivityCakesBinding
-    private var connectionHelper: ConnectionHelper = ConnectionHelper()
-    private var connect: Connection = connectionHelper.getConnection()
+    private val connect = ConnectionHelper().getConnection()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
