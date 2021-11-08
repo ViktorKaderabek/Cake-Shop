@@ -7,13 +7,16 @@ import com.example.cake_shop.databinding.ItemEmployeeBinding
 import com.example.cake_shop.model.data.EmployeeProfileDataClass
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 
-class EmployeeProfileFastAdapter(val employeeProfiletItem: EmployeeProfileDataClass) :
+class EmployeeProfileFastAdapter(val employeeProfiletItem: EmployeeProfileDataClass) ://Adapter
     AbstractBindingItem<ItemEmployeeBinding>() {
 
     override val type: Int
         get() = R.id.home_item
 
-    override fun bindView(binding: ItemEmployeeBinding, payloads: List<Any>) {
+    override fun bindView(
+        binding: ItemEmployeeBinding,
+        payloads: List<Any>
+    ) {//prirazuje view s DataClassou
 
         binding.txtName.text = employeeProfiletItem.name
         binding.txtPositions.text = employeeProfiletItem.position
@@ -21,7 +24,7 @@ class EmployeeProfileFastAdapter(val employeeProfiletItem: EmployeeProfileDataCl
         binding.imgPhoto.setImageBitmap(employeeProfiletItem.picture)
     }
 
-    override fun createBinding(
+    override fun createBinding(//Vytvari recyclerview
         inflater: LayoutInflater,
         parent: ViewGroup?
     ): ItemEmployeeBinding {

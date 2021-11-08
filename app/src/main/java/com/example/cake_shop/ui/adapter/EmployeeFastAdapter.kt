@@ -7,19 +7,21 @@ import com.example.cake_shop.databinding.ItemEmployeeTextBinding
 import com.example.cake_shop.model.data.EmployeeTextDataClass
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 
-class EmployeeFastAdapter(val employeeTexttItem: EmployeeTextDataClass) :
+class EmployeeFastAdapter(val employeeTexttItem: EmployeeTextDataClass) ://Adapter
     AbstractBindingItem<ItemEmployeeTextBinding>() {
 
     override val type: Int
         get() = R.id.home_item
 
-    override fun bindView(binding: ItemEmployeeTextBinding, payloads: List<Any>) {
-
+    override fun bindView(
+        binding: ItemEmployeeTextBinding,
+        payloads: List<Any>
+    ) {//prirazuje view s DataClassou
         binding.txtTopic.text = employeeTexttItem.title
         binding.txtSecondaryTopic.text = employeeTexttItem.secondaryTitle
     }
 
-    override fun createBinding(
+    override fun createBinding(//Vytvari recyclerview
         inflater: LayoutInflater,
         parent: ViewGroup?
     ): ItemEmployeeTextBinding {

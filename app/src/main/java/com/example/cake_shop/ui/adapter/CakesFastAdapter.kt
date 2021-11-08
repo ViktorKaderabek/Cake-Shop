@@ -7,13 +7,16 @@ import com.example.cake_shop.databinding.ItemCakesBinding
 import com.example.cake_shop.model.data.CakesDataClass
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 
-class CakesFastAdapter(val cakeItem: CakesDataClass) :
+class CakesFastAdapter(val cakeItem: CakesDataClass) ://Adapter
     AbstractBindingItem<ItemCakesBinding>() {
 
     override val type: Int
         get() = R.id.home_item
 
-    override fun bindView(binding: ItemCakesBinding, payloads: List<Any>) {
+    override fun bindView(
+        binding: ItemCakesBinding,
+        payloads: List<Any>
+    ) {//prirazuje view s DataClassou
 
         binding.txtNazev.text = cakeItem.name
         binding.txtPopis.text = cakeItem.popis
@@ -23,7 +26,10 @@ class CakesFastAdapter(val cakeItem: CakesDataClass) :
 
     }
 
-    override fun createBinding(inflater: LayoutInflater, parent: ViewGroup?): ItemCakesBinding {
+    override fun createBinding(//Vytvari recyclerview
+        inflater: LayoutInflater,
+        parent: ViewGroup?
+    ): ItemCakesBinding {
         return ItemCakesBinding.inflate(inflater, parent, false)
     }
 
