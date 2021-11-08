@@ -22,8 +22,8 @@ import com.mikepenz.fastadapter.select.getSelectExtension
 @Suppress("DEPRECATION")
 class HomeFragment : Fragment() {
 
-    private lateinit var homeFragmentBinding: FragmentHomeBinding
-    private lateinit var homeFragmentViewModel: HomeFragmentViewModel
+    private lateinit var homeFragmentBinding: FragmentHomeBinding //promenna s itemy v layoutu
+    private lateinit var homeFragmentViewModel: HomeFragmentViewModel //promenna ktera odkazuje na viewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

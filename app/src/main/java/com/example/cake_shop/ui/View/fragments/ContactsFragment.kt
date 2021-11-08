@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -21,9 +22,9 @@ import android.view.View as View1
 @Suppress("DEPRECATION")
 class ContactsFragment : Fragment() {
 
-    private lateinit var contactsFragmentViewModel: ContactsFragmentViewModel
-    private lateinit var contactsFragmentBinding: FragmentContactsBinding
-    private val connect = ConnectionHelper().getConnection()
+    private lateinit var contactsFragmentViewModel: ContactsFragmentViewModel //promenna ktera odkazuje na viewModel
+    private lateinit var contactsFragmentBinding: FragmentContactsBinding //promenna ktera odkazuje na itemy v layoutu
+    private val connect = ConnectionHelper().getConnection() //promenna ktera odkazuje na funkci v jine tride
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +41,7 @@ class ContactsFragment : Fragment() {
             defaultViewModelProviderFactory
         ).get(ContactsFragmentViewModel::class.java)
 
-        if (connect != null) {
+        if (connect != null) { //pokud funkce vraci pripojeni tak se stane to co je v tele
 
             val statement: Statement?
 
@@ -65,8 +66,8 @@ class ContactsFragment : Fragment() {
                         }
                     }
                 }
-            } catch (e: SQLException) {
-                e.printStackTrace()
+            } catch (e: SQLException) { //pokud se to nezdari pripojeni tak se do logu zapise to co je v tele
+               Log.e("Error:",e.toString())
             }
         }
 
@@ -74,25 +75,25 @@ class ContactsFragment : Fragment() {
         contactsFragmentBinding.txtAddresse.text = contactsFragmentViewModel.address
         contactsFragmentBinding.txtPhoneNumber.text = contactsFragmentViewModel.phone
 
-        contactsFragmentBinding.txtMailAddresse.setOnClickListener {
+        contactsFragmentBinding.txtMailAddresse.setOnClickListener {//kdyz se klikne na txtMailAddresse
             val emailIntent =
                 Intent(
                     Intent.ACTION_SENDTO,
-                    Uri.fromParts("mailto", contactsFragmentViewModel.email, null)
+                    Uri.fromParts("mailto", contactsFragmentViewModel.email, null) //zapne se jakakoliv emailova aplikace
                 )
-            startActivity(Intent.createChooser(emailIntent, "Send email..."))
+            startActivity(Intent.createChooser(emailIntent, "Send email...")) //automaticky se vyplni subjekt
         }
 
-        contactsFragmentBinding.txtAddresse.setOnClickListener {
+        contactsFragmentBinding.txtAddresse.setOnClickListener { //zapne se mapova aplikace
             val mapIntent = Intent(
                 Intent.ACTION_VIEW,
-                Uri.parse("geo:50.0654, 14.3035?q=50.0654,14.3035 (Label+Name)")
+                Uri.parse("geo:50.0654, 14.3035?q=50.0654,14.3035 (Label+Name)") // souradnice a pointer
             )
             mapIntent.setPackage("com.google.android.apps.maps")
             startActivity(mapIntent)
         }
 
-        contactsFragmentBinding.txtPhoneNumber.setOnClickListener {
+        contactsFragmentBinding.txtPhoneNumber.setOnClickListener { //otevre se jakakoliv contact aplikace a automaticky se vyplni phone,name,email a adresa
             val contactsIntent =
                 Intent(Intent.ACTION_INSERT, ContactsContract.Contacts.CONTENT_URI)
             contactsIntent.putExtra("phone", contactsFragmentViewModel.phone)
