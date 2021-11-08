@@ -40,7 +40,7 @@ class ContactsFragment : Fragment() {
             defaultViewModelProviderFactory
         ).get(ContactsFragmentViewModel::class.java)
 
-        if (connect != null) { //pokud se pripojeni k dbs zdarilo stane se podminka
+        if (connect != null) {
 
             val statement: Statement?
 

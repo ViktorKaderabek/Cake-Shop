@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityCakeShopBinding
-import com.example.cake_shop.ui.View.fragments.AboutUsFramgen
+import com.example.cake_shop.ui.View.fragments.NewsFragment
 import com.example.cake_shop.ui.View.fragments.AccountFragment
 import com.example.cake_shop.ui.View.fragments.ContactsFragment
 import com.example.cake_shop.ui.View.fragments.HomeFragment
@@ -65,7 +65,7 @@ class CakeShopActivity : AppCompatActivity() {
                     } else {
                         //if the fragment does not exist, add it to fragment manager.
                         supportFragmentManager.beginTransaction()
-                            .add(R.id.fl_wrapper, AboutUsFramgen(), "AboutUsTag").commit()
+                            .add(R.id.fl_wrapper, NewsFragment(), "AboutUsTag").commit()
                     }
                     if (supportFragmentManager.findFragmentByTag("HomeTag") != null) {
                         //if the other fragment is visible, hide it.

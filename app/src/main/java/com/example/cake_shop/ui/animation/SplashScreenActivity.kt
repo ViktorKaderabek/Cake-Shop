@@ -14,6 +14,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding =
             DataBindingUtil.setContentView(this, R.layout.activity_splash_screen)
 
@@ -21,7 +22,10 @@ class SplashScreenActivity : AppCompatActivity() {
         binding.ivLoading.animate().setDuration(5000).alpha(1f) //animace
             .withEndAction { //kdyz animace skonci
 
-                val intent = Intent(this, MainActivity::class.java) //Activita ktera se zapne az skonci animace
+                val intent = Intent(
+                    this,
+                    MainActivity::class.java
+                ) //Activita ktera se zapne az skonci animace
 
                 overridePendingTransition( //typ animace
                     android.R.anim.fade_in,

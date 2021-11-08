@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityAboutUsBinding
 import com.example.cake_shop.model.data.AboutUsDataClass
-import com.example.cake_shop.ui.ViewModel.AboutUsViewModel
+import com.example.cake_shop.ui.ViewModel.NewsViewMOdel
 import com.example.cake_shop.ui.adapter.AboutUsFastAdapter
 
 class AboutUsActivity : AppCompatActivity() {
 
-    private lateinit var aboutUsViewModel: AboutUsViewModel
+    private lateinit var aboutUsViewModel: NewsViewMOdel
     private lateinit var aboutUsBinding: ActivityAboutUsBinding //binding na layout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class AboutUsActivity : AppCompatActivity() {
         aboutUsViewModel = ViewModelProvider(
             this,
             defaultViewModelProviderFactory
-        ).get(AboutUsViewModel::class.java)
+        ).get(NewsViewMOdel::class.java)
 
         aboutUsBinding.imbtnBack.setOnClickListener {//button ktery nastavuje result 0 na activitu ktera otevrela tuhle aktivitu
             setResult(0)

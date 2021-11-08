@@ -4,7 +4,6 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.os.StrictMode
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -15,13 +14,16 @@ import com.example.cake_shop.R
 import com.example.cake_shop.databinding.FragmentAccountBinding
 import com.example.cake_shop.model.data.dbConnection.ConnectionHelper
 import com.example.cake_shop.ui.View.MainActivity
-import java.sql.*
+import java.sql.ResultSet
+import java.sql.SQLException
+import java.sql.Statement
 
 @Suppress("DEPRECATION")
 class AccountFragment : Fragment() {
 
-    private lateinit var binding: FragmentAccountBinding
-    private val connect = ConnectionHelper().getConnection()
+    private lateinit var binding: FragmentAccountBinding //itemy z layoutu
+    private val connect =
+        ConnectionHelper().getConnection() //promenna ktera obsahuje odkaz na funcki v ConnectionHelper classe
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,17 +35,17 @@ class AccountFragment : Fragment() {
         val view = binding.root
         val intent = Intent(activity, MainActivity::class.java)
 
-        binding.btnEditProfilePicture.setOnClickListener {
+        binding.btnEditProfilePicture.setOnClickListener { //kdyz se klikne ne button, tak se stane to co je v tele
             val galleryIntent = Intent()
             galleryIntent.action = Intent.ACTION_GET_CONTENT
             galleryIntent.type = "image/*"
             startActivityForResult(Intent.createChooser(galleryIntent, "Pick an image"), 123)
         }
 
-        binding.btnSignOut.setOnClickListener {
-            startActivity(intent)
+        binding.btnSignOut.setOnClickListener { //kdyz se klikne na btnSignOut
+            startActivity(intent) //zapne se predem definovana aktivita ktera je pod promennou intent
             try {
-                if (connect != null) {
+                if (connect != null) { //pokud funkce connect neco vraci tak se stane to co je v tele
 
                     val statement2: Statement = connect!!.createStatement()
                     statement2.executeQuery("Update EmailHolder Set state = ('NULL'),email = ('NULL') where id = ('1');")
@@ -54,7 +56,7 @@ class AccountFragment : Fragment() {
             }
         }
 
-        if (connect != null) { //pokud se pripojeni k dbs zdarilo stane se podminka
+        if (connect != null) { //pokud funkce connect neco vraci tak se stane to co je v tele
 
             val statement: Statement?
 

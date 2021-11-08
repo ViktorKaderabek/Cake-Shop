@@ -5,7 +5,7 @@ import com.example.cake_shop.ui.adapter.AboutUsFastAdapter
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
 
-class AboutUsViewModel : ViewModel() {
+class NewsViewMOdel : ViewModel() {
 
     val itemAdapter =
         ItemAdapter<AboutUsFastAdapter>() //Promena ktera v sobe ma list veci ktere jsou v adapteru
