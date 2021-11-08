@@ -1,7 +1,7 @@
 package com.example.cake_shop.model.data
 
-data class AboutUsDataClass(
-    val title: String, //data do recycerlView
+data class AboutUsDataClass(//data pro recyclerView
+    val title: String,
     val text: String,
     val image: Int
 )

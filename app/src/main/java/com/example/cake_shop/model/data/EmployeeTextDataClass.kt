@@ -1,6 +1,6 @@
 package com.example.cake_shop.model.data
 
-data class EmployeeTextDataClass(
-    val title: String, //data do recycerlView
+data class EmployeeTextDataClass( //data pro recyclerView
+    val title: String,
     val secondaryTitle: String
 )
