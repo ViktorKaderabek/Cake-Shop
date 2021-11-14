@@ -17,6 +17,6 @@
 #What it does 
 
 - Reading from db and showing the data from it
-- Updating data from db 
+- Updating data in db 
 - Showing data from db
 - Posibility to delete form db
