@@ -20,3 +20,18 @@
 - Updating data in db 
 - Showing data from db
 - Posibility to delete form db
+
+# What I Used
+
+- I used a MS SQL Server for creating db and connecting with a application 
+- In application for showing data from db i used a RecyclersViews
+- Coroutines are used as well 
+
+# To Do List
+
+- [✔️] Reading from DataBase
+- [✔️] Updating data in DataBase
+- [✔️] Creating new data in DataBase
+- [✔️] Deleting data in DataBase
+- [✔️] The selected theme meets the predefined themes
+
