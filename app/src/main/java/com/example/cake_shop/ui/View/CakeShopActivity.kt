@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.cake_shop.R
 import com.example.cake_shop.databinding.ActivityCakeShopBinding
-import com.example.cake_shop.ui.View.fragments.NewsFragment
 import com.example.cake_shop.ui.View.fragments.AccountFragment
 import com.example.cake_shop.ui.View.fragments.ContactsFragment
 import com.example.cake_shop.ui.View.fragments.HomeFragment
@@ -48,34 +47,6 @@ class CakeShopActivity : AppCompatActivity() {
                         //if the other fragment is visible, hide it.
                         supportFragmentManager.beginTransaction()
                             .hide(supportFragmentManager.findFragmentByTag("AboutUsTag")!!).commit()
-                    }
-                    if (supportFragmentManager.findFragmentByTag("AccountTag") != null) {
-                        //if the other fragment is visible, hide it.
-                        supportFragmentManager.beginTransaction()
-                            .hide(supportFragmentManager.findFragmentByTag("AccountTag")!!).commit()
-                    }
-                }
-
-                R.id.ic_aboutUs -> {
-                    if (supportFragmentManager.findFragmentByTag("AboutUsTag") != null) {
-                        //if the fragment exists, show it.
-                        supportFragmentManager.beginTransaction()
-                            .show(supportFragmentManager.findFragmentByTag("AboutUsTag")!!).commit()
-
-                    } else {
-                        //if the fragment does not exist, add it to fragment manager.
-                        supportFragmentManager.beginTransaction()
-                            .add(R.id.fl_wrapper, NewsFragment(), "AboutUsTag").commit()
-                    }
-                    if (supportFragmentManager.findFragmentByTag("HomeTag") != null) {
-                        //if the other fragment is visible, hide it.
-                        supportFragmentManager.beginTransaction()
-                            .hide(supportFragmentManager.findFragmentByTag("HomeTag")!!).commit()
-                    }
-                    if (supportFragmentManager.findFragmentByTag("InfoTag") != null) {
-                        //if the other fragment is visible, hide it.
-                        supportFragmentManager.beginTransaction()
-                            .hide(supportFragmentManager.findFragmentByTag("InfoTag")!!).commit()
                     }
                     if (supportFragmentManager.findFragmentByTag("AccountTag") != null) {
                         //if the other fragment is visible, hide it.
