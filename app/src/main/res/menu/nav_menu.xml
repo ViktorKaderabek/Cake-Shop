@@ -7,11 +7,6 @@
         android:title="Home" />
 
     <item
-        android:id="@+id/ic_aboutUs"
-        android:icon="@drawable/ic_baseline_emoji_emotions_24"
-        android:title="News" />
-
-    <item
         android:id="@+id/ic_info"
         android:icon="@drawable/ic_baseline_local_phone_24"
         android:title="Contacts" />
