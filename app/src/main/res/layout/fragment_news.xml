@@ -24,7 +24,7 @@
                 app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </FrameLayout>
 
+    </FrameLayout>
 
 </layout>
