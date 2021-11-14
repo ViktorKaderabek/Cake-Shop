@@ -13,3 +13,26 @@
 )
 
         HomeScreen           ProductsScreen         AboutUsScreen          AccoutnScreen        
+
+# What It Does
+
+- Reading from DataBase and showing the data from it
+- Updating data in DataBase 
+- Showing data from DataBase
+- Posibility to delete form DataBase
+
+# What I Used
+
+- I used a MS SQL Server for creating DataBase and connecting with a application 
+- In application for showing data from DataBase i used a RecyclersViews
+- Coroutines are used as well
+- The LocalHost DataBase 
+
+# To Do List (5/5)
+
+- [✔️] Reading from DataBase
+- [✔️] Updating data in DataBase
+- [✔️] Creating new data in DataBase
+- [✔️] Deleting data in DataBase
+- [✔️] The selected theme meets the predefined themes
+
