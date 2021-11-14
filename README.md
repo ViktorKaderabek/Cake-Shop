@@ -8,11 +8,11 @@
  
     ResetPasswordScreen
  
- ![screenshot-1635288589355 (1)](https://user-images.githubusercontent.com/66387359/138972811-417f7576-2726-4d1b-9490-ddc259a140b3.png) ![screenshot-1634036958030_25](https://user-images.githubusercontent.com/66387359/136946203-daf0558f-eec5-44e7-b85c-dbb1f3ae4d85.png) 
+ ![screenshot-1635288589355 (1)](https://user-images.githubusercontent.com/66387359/138972811-417f7576-2726-4d1b-9490-ddc259a140b3.png) 
  ![screenshot-1635288613862 (1) (1)](https://user-images.githubusercontent.com/66387359/138972671-28926691-088c-4e29-9215-7cb29d030e43.png)
 )
 
-        HomeScreen           ProductsScreen         AboutUsScreen          AccoutnScreen        
+        HomeScreen             AboutUsScreen          AccoutnScreen        
 
 # What It Does
 
