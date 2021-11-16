@@ -36,3 +36,19 @@
 - [✔️] Deleting data in DataBase
 - [✔️] The selected theme meets the predefined themes
 
+
+![account_screen](https://user-images.githubusercontent.com/66387359/142074435-aa7f1ed0-f2f7-4b67-9dc4-07a7d5f821aa.png)
+![animation_screen](https://user-images.githubusercontent.com/66387359/142074439-9925ff62-ad14-4c3b-8c2b-6cb4796aca81.png)
+![cakes_screen (2)](https://user-images.githubusercontent.com/66387359/142074440-dd366253-0957-400d-aceb-a741e4e985c5.png)
+![cakes_screen (3)](https://user-images.githubusercontent.com/66387359/142074442-da4fd758-d5e9-468a-8803-721bb00201de.png)
+![cakes_screen (4)](https://user-images.githubusercontent.com/66387359/142074444-b7469f4b-b31a-4ccb-87b3-06af577803a4.png)
+![cakes_screen (5)](https://user-images.githubusercontent.com/66387359/142074445-3f688e0e-153a-4f0e-bc58-158596efb40b.png)
+![cakes_screen (6)](https://user-images.githubusercontent.com/66387359/142074446-f5788a86-d621-455e-aecb-43f351e7a71e.png)
+![cakes_screen (7)](https://user-images.githubusercontent.com/66387359/142074447-db373a7c-7b7d-470d-a92c-b1fea99b662f.png)
+![cakes_screen (8)](https://user-images.githubusercontent.com/66387359/142074448-daa71250-d0ab-4b43-ac91-3a08116ff78f.png)
+![cakes_screen (9)](https://user-images.githubusercontent.com/66387359/142074449-b38dd1b0-38eb-4f7e-a74e-b8bd9efd3692.png)
+![cakes_screen (10)](https://user-images.githubusercontent.com/66387359/142074450-58bc32f7-299d-40a4-8c23-dc3e39a7192f.png)
+![cakes_screen (11)](https://user-images.githubusercontent.com/66387359/142074451-6db8d9bb-e9ed-410b-ad85-0714191d5052.png)
+![cakes_screen (12)](https://user-images.githubusercontent.com/66387359/142074453-c33987fc-ea14-4cdd-bd63-91897f064866.png)
+![cakes_screen](https://user-images.githubusercontent.com/66387359/142074455-cf8f367b-d7e2-4bfe-a56a-f2a33e5fdda6.png)
+![signUp_screen](https://user-images.githubusercontent.com/66387359/142074459-e6f24413-65a9-474d-803f-340c464c1fef.png)
