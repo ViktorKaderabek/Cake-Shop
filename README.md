@@ -37,18 +37,37 @@
 - [✔️] The selected theme meets the predefined themes
 
 
-![account_screen](https://user-images.githubusercontent.com/66387359/142074435-aa7f1ed0-f2f7-4b67-9dc4-07a7d5f821aa.png)
-![animation_screen](https://user-images.githubusercontent.com/66387359/142074439-9925ff62-ad14-4c3b-8c2b-6cb4796aca81.png)
-![cakes_screen (2)](https://user-images.githubusercontent.com/66387359/142074440-dd366253-0957-400d-aceb-a741e4e985c5.png)
-![cakes_screen (3)](https://user-images.githubusercontent.com/66387359/142074442-da4fd758-d5e9-468a-8803-721bb00201de.png)
-![cakes_screen (4)](https://user-images.githubusercontent.com/66387359/142074444-b7469f4b-b31a-4ccb-87b3-06af577803a4.png)
-![cakes_screen (5)](https://user-images.githubusercontent.com/66387359/142074445-3f688e0e-153a-4f0e-bc58-158596efb40b.png)
-![cakes_screen (6)](https://user-images.githubusercontent.com/66387359/142074446-f5788a86-d621-455e-aecb-43f351e7a71e.png)
-![cakes_screen (7)](https://user-images.githubusercontent.com/66387359/142074447-db373a7c-7b7d-470d-a92c-b1fea99b662f.png)
-![cakes_screen (8)](https://user-images.githubusercontent.com/66387359/142074448-daa71250-d0ab-4b43-ac91-3a08116ff78f.png)
-![cakes_screen (9)](https://user-images.githubusercontent.com/66387359/142074449-b38dd1b0-38eb-4f7e-a74e-b8bd9efd3692.png)
-![cakes_screen (10)](https://user-images.githubusercontent.com/66387359/142074450-58bc32f7-299d-40a4-8c23-dc3e39a7192f.png)
-![cakes_screen (11)](https://user-images.githubusercontent.com/66387359/142074451-6db8d9bb-e9ed-410b-ad85-0714191d5052.png)
-![cakes_screen (12)](https://user-images.githubusercontent.com/66387359/142074453-c33987fc-ea14-4cdd-bd63-91897f064866.png)
-![cakes_screen](https://user-images.githubusercontent.com/66387359/142074455-cf8f367b-d7e2-4bfe-a56a-f2a33e5fdda6.png)
-![signUp_screen](https://user-images.githubusercontent.com/66387359/142074459-e6f24413-65a9-474d-803f-340c464c1fef.png)
+![icon_screen](https://user-images.githubusercontent.com/66387359/142075434-86ac6501-5f9e-4ff0-ae1f-5c5261c0684b.png)
+
+![animation_screen](https://user-images.githubusercontent.com/66387359/142075477-c9448378-d0b4-44dd-a56b-20a6748d397d.png)
+
+![main_screen](https://user-images.githubusercontent.com/66387359/142075484-76751f61-0b75-428e-92c6-f21f862f
+
+![signUp_screen](https://user-images.githubusercontent.com/66387359/142075502-a57b6d03-fb63-4c5f-86b7
+
+![login_screen](https://user-images.githubusercontent.com/66387359/142075512-3df7e256-f058-4538-9ad8-302d6cf5d948.png)
+-88851c0e200e.png)
+da84.png)
+
+![reset_screen](https://user-images.githubusercontent.com/66387359/142075538-669eeb3c-15f9-4f17-b42a-e08a3c7959a1.png)
+
+![home_screen](https://user-images.githubusercontent.com/66387359/142075983-f9ae0e37-a014-4658-b41e-0cd187385b94.png)
+
+![contacts_screen](https://user-images.githubusercontent.com/66387359/142075996-e1bab912-8e8e-4336-a9d6-7a3760c
+
+![account_screen](https://user-images.githubusercontent.com/66387359/142076011-52858684-8f29-48cd-9b74-af2ee3942515.png)
+a2af3.png)
+
+![home_acti_screen](https://user-images.githubusercontent.com/66387359/142076073-90ac037e-6089-46c5-8354-393d39cfb3ba.png)
+
+![employee_screen](https://user-images.githubusercontent.com/66387359/142076085-729b72a5-382a-4810-aa77-d9a776eebcaa.png)
+
+![cakes_screen ](https://user-images.githubusercontent.com/66387359/142076096-75c3c5dd-b362-4b92-86db-36da86e8bdf5.png)
+
+![cakes_screen](https://user-images.githubusercontent.com/66387359/142076125-5a7a0273-f10d-4c26-8b78-9fdaea22b5fb.png)
+
+![ice_screens](https://user-images.githubusercontent.com/66387359/142076142-dac09562-c5ed-42aa-9814-5d983492a42b.png)
+
+![dezers_screen](https://user-images.githubusercontent.com/66387359/142076160-10f330d4-af75-43f1-8a6c-05ca2c923052.png)
+
+
