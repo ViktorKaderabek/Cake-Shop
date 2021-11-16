@@ -37,9 +37,7 @@
 - [✔️] The selected theme meets the predefined themes
 
 
-![icon_screen](https://user-images.githubusercontent.com/66387359/142075434-86ac6501-5f9e-4ff0-ae1f-5c5261c0684b.png)![animation_screen](https://user-images.githubusercontent.com/66387359/142075477-c9448378-d0b4-44dd-a56b-20a6748d397d.png)![main_screen](https://user-images.githubusercontent.com/66387359/142075484-76751f61-0b75-428e-92c6-f21f862f)![signUp_screen](https://user-images.githubusercontent.com/66387359/142076424-45e86c4b-e831-4d13-b735-37ff0562982d.png)![login_screen](https://user-images.githubusercontent.com/66387359/142075512-3df7e256-f058-4538-9ad8-302d6cf5d948.png)
-
-![reset_screen](https://user-images.githubusercontent.com/66387359/142075538-669eeb3c-15f9-4f17-b42a-e08a3c7959a1.png)
+![icon_screen](https://user-images.githubusercontent.com/66387359/142075434-86ac6501-5f9e-4ff0-ae1f-5c5261c0684b.png)!  [animation_screen](https://user-images.githubusercontent.com/66387359/142075477-c9448378-d0b4-44dd-a56b-20a6748d397d.png)!  [main_screen](https://user-images.githubusercontent.com/66387359/142076705-8051c61d-43af-4113-b0fd-07a815f102f6.png)  ![signUp_screen](https://user-images.githubusercontent.com/66387359/142076424-45e86c4b-e831-4d13-b735-37ff0562982d.png)  ![login_screen](https://user-images.githubusercontent.com/66387359/142075512-3df7e256-f058-4538-9ad8-302d6cf5d948.png)  ![reset_screen](https://user-images.githubusercontent.com/66387359/142075538-669eeb3c-15f9-4f17-b42a-e08a3c7959a1.png)
 
 ![home_screen](https://user-images.githubusercontent.com/66387359/142075983-f9ae0e37-a014-4658-b41e-0cd187385b94.png)
 
