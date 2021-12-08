@@ -18,7 +18,7 @@ class ConnectionHelper
      {
 	
 	val ip = "192.168.0.242" //ip localhosota
-	val port = "1300" //port localhosta
+	val port = "1433" //port localhosta
 	val database = "CakeShopDB" //nazev DB
 	val us = "test" // username k DB
 	val pass = "1234" // heslo k DB
