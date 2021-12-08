@@ -58,7 +58,7 @@ class CakesActivity : AppCompatActivity()
 	     {
 		statement = connect !!.createStatement()
 		var query1 : ResultSet =
-		     statement.executeQuery("SELECT COUNT(1) as NumberOfRows FROM cakes")
+		     statement.executeQuery("SELECT COUNT(1) as NumberOfRows FROM Cakes")
 		if (query1.next())
 		{
 		     cakeViewModel.count = query1.getInt(1)
@@ -66,27 +66,27 @@ class CakesActivity : AppCompatActivity()
 		     {
 			cakeViewModel.idCount += 1
 			query1 =
-			     statement.executeQuery("select nazev from cakes where id = ('${cakeViewModel.idCount}')")
+			     statement.executeQuery("select nazev from Cakes where id = ('${cakeViewModel.idCount}')")
 			if (query1.next())
 			{
 			     cakeViewModel.name = query1.getString(1)
 			     query1 =
-				statement.executeQuery("select popis from cakes where id = ('${cakeViewModel.idCount}')")
+				statement.executeQuery("select popis from Cakes where id = ('${cakeViewModel.idCount}')")
 			     if (query1.next())
 			     {
 				cakeViewModel.popis = query1.getString(1)
 				query1 =
-				     statement.executeQuery("select alergeny from cakes where id = ('${cakeViewModel.idCount}')")
+				     statement.executeQuery("select alergeny from Cakes where id = ('${cakeViewModel.idCount}')")
 				if (query1.next())
 				{
 				     cakeViewModel.alergeny = query1.getString(1)
 				     query1 =
-					statement.executeQuery("select cena from cakes where id = ('${cakeViewModel.idCount}')")
+					statement.executeQuery("select cena from Cakes where id = ('${cakeViewModel.idCount}')")
 				     if (query1.next())
 				     {
 					cakeViewModel.cena = query1.getString(1)
 					query1 =
-					     statement.executeQuery("select photo from cakes where id = ('${cakeViewModel.idCount}')")
+					     statement.executeQuery("select photo from Cakes where id = ('${cakeViewModel.idCount}')")
 					if (query1.next())
 					{
 					     cakeViewModel.photo = query1.getBytes(1)
