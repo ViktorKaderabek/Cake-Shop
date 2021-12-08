@@ -20,119 +20,125 @@ import com.example.cake_shop.ui.adapter.HomeFastAdapter
 import com.mikepenz.fastadapter.select.getSelectExtension
 
 @Suppress("DEPRECATION")
-class HomeFragment : Fragment()
-{
-     
-     private lateinit var homeFragmentBinding : FragmentHomeBinding //promenna s itemy v layoutu
-     private lateinit var homeFragmentViewModel : HomeFragmentViewModel //promenna ktera odkazuje na viewModel
-     override fun onCreateView(
-         inflater : LayoutInflater,
-         container : ViewGroup?,
-         savedInstanceState : Bundle?,
-                              ) : View?
-     {
-	
-	homeFragmentBinding = DataBindingUtil.inflate(
-	     inflater,
-	     R.layout.fragment_home,
-	     container,
-	     false
-					     )
-	val view : View = homeFragmentBinding.root
-	
-	homeFragmentViewModel = ViewModelProvider(
-	     this,
-	     defaultViewModelProviderFactory
-					 ).get(HomeFragmentViewModel::class.java)
-	
-	return view
-	
-     }
-     
-     override fun onViewCreated(
-         itemView : View,
-         savedInstanceState : Bundle?,
-                               )
-     {
-	super.onViewCreated(itemView,
-			savedInstanceState)
-	homeFragmentBinding.recyclerview.apply {
-	     
-	     val employeeActivityIntent =
-		Intent(activity,
-		       EmployeeActivity::class.java)
-	     val aboutUsIntent =
-		Intent(activity,
-		       AboutUsActivity::class.java)
-	     val productsIntent =
-		Intent(activity,
-		       ProductsActivity::class.java)
-	     
-	     homeFragmentBinding.recyclerview.layoutManager =
-		LinearLayoutManager(activity)
-	     homeFragmentBinding.recyclerview.adapter =
-		homeFragmentViewModel.fastAdapter // Nastavuje recyclerview co bude obsahem
-	     homeFragmentBinding.recyclerview.setHasFixedSize(true)
-	     
-	     val selectExtension = homeFragmentViewModel.fastAdapter.getSelectExtension()
-	     selectExtension.isSelectable = true
-	     selectExtension.multiSelect = true
-	     selectExtension.selectOnLongClick = false
-	     
-	     homeFragmentViewModel.itemAdapter.add(
-		HomeFastAdapter(
-		     HomeDataClass(
-			"  Home",
-			"  Let's Find Out Who We Are !!",
-			R.drawable.cake_shop,
-			R.drawable.ic_baseline_home_24
-			        )
-			     )
-					  )
-	     
-	     homeFragmentViewModel.itemAdapter.add(
-		HomeFastAdapter(
-		     HomeDataClass(
-			"  Products",
-			"  Enjoy Our Products Here Right Now !!",
-			R.drawable.cake_shop_products,
-			R.drawable.product
-			        )
-			     )
-					  )
-	     
-	     homeFragmentViewModel.itemAdapter.add(
-		HomeFastAdapter(
-		     HomeDataClass(
-			"  Our Employees",
-			"  Become Our Employee And Find YourSelf Here !!",
-			R.drawable.happy_employee,
-			R.drawable.employee
-			        )
-			     )
-					  )
-	     
-	     homeFragmentViewModel.fastAdapter.onClickListener =
-		{ view, adapter, item, position ->
-		     
-		     if (position == 0)
-		     {
-			startActivityForResult(aboutUsIntent,
-					   1)
-		     }
-		     else if (position == 1)
-		     {
-			startActivityForResult(productsIntent,
-					   1)
-		     }
-		     else if (position == 2)
-		     {
-			startActivityForResult(employeeActivityIntent,
-					   1)
-		     }
-		     false
-		}
-	 
-	}
-     }
+class HomeFragment : Fragment() {
+
+    private lateinit var homeFragmentBinding: FragmentHomeBinding //promenna s itemy v layoutu
+    private lateinit var homeFragmentViewModel: HomeFragmentViewModel //promenna ktera odkazuje na viewModel
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View? {
+
+        homeFragmentBinding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_home,
+            container,
+            false
+        )
+        val view: View = homeFragmentBinding.root
+
+        homeFragmentViewModel = ViewModelProvider(
+            this,
+            defaultViewModelProviderFactory
+        ).get(HomeFragmentViewModel::class.java)
+
+        return view
+
+    }
+
+    override fun onViewCreated(
+        itemView: View,
+        savedInstanceState: Bundle?,
+    ) {
+        super.onViewCreated(
+            itemView,
+            savedInstanceState
+        )
+        homeFragmentBinding.recyclerview.apply {
+
+            val employeeActivityIntent =
+                Intent(
+                    activity,
+                    EmployeeActivity::class.java
+                )
+            val aboutUsIntent =
+                Intent(
+                    activity,
+                    AboutUsActivity::class.java
+                )
+            val productsIntent =
+                Intent(
+                    activity,
+                    ProductsActivity::class.java
+                )
+
+            homeFragmentBinding.recyclerview.layoutManager =
+                LinearLayoutManager(activity)
+            homeFragmentBinding.recyclerview.adapter =
+                homeFragmentViewModel.fastAdapter // Nastavuje recyclerview co bude obsahem
+            homeFragmentBinding.recyclerview.setHasFixedSize(true)
+
+            val selectExtension = homeFragmentViewModel.fastAdapter.getSelectExtension()
+            selectExtension.isSelectable = true
+            selectExtension.multiSelect = true
+            selectExtension.selectOnLongClick = false
+
+            homeFragmentViewModel.itemAdapter.add(
+                HomeFastAdapter(
+                    HomeDataClass(
+                        "  Home",
+                        "  Let's Find Out Who We Are !!",
+                        R.drawable.cake_shop,
+                        R.drawable.ic_baseline_home_24
+                    )
+                )
+            )
+
+            homeFragmentViewModel.itemAdapter.add(
+                HomeFastAdapter(
+                    HomeDataClass(
+                        "  Products",
+                        "  Enjoy Our Products Here Right Now !!",
+                        R.drawable.cake_shop_products,
+                        R.drawable.product
+                    )
+                )
+            )
+
+            homeFragmentViewModel.itemAdapter.add(
+                HomeFastAdapter(
+                    HomeDataClass(
+                        "  Our Employees",
+                        "  Become Our Employee And Find YourSelf Here !!",
+                        R.drawable.happy_employee,
+                        R.drawable.employee
+                    )
+                )
+            )
+
+            homeFragmentViewModel.fastAdapter.onClickListener =
+                { view, adapter, item, position ->
+
+                    if (position == 0) {
+                        startActivityForResult(
+                            aboutUsIntent,
+                            1
+                        )
+                    } else if (position == 1) {
+                        startActivityForResult(
+                            productsIntent,
+                            1
+                        )
+                    } else if (position == 2) {
+                        startActivityForResult(
+                            employeeActivityIntent,
+                            1
+                        )
+                    }
+                    false
+                }
+
+        }
+    }
 }
