@@ -101,12 +101,12 @@ class LogginActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Connection is null", Toast.LENGTH_SHORT)
                         .show()
                 }
-            }
-            else
-            {
-                Toast.makeText(applicationContext,
-                               "All fields are required",
-                               Toast.LENGTH_SHORT)
+            } else {
+                Toast.makeText(
+                    applicationContext,
+                    "All fields are required",
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             }
         }
